@@ -1,0 +1,37 @@
+body{
+    display: flex;
+
+    box-sizing: border-box;
+
+    height: 100vh;
+    width: 100%;
+
+    background-color: #000000;
+}
+
+#main-area{
+    display: flex;
+    margin: auto;
+
+    box-sizing: border-box;
+ 
+    height: 35vw; 
+    aspect-ratio: 1/1;
+}
+
+#main-area-grid{
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    height: 100%;
+    width: 100%;
+}
+
+.tile{
+    height: 100%; 
+    width: 100%;
+
+    background-color: blanchedalmond;
+}
