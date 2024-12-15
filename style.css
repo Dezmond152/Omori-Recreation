@@ -1,37 +1,20 @@
+@font-face{
+  font-family: GameFont;
+  src: url("/fonts/OMORI_GAME.ttf");
+}
+
 body{
-    display: flex;
-
-    box-sizing: border-box;
-
-    height: 100vh;
-    width: 100%;
-
-    background-color: #000000;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
-#main-area{
-    display: flex;
-    margin: auto;
-
-    box-sizing: border-box;
- 
-    height: 35vw; 
-    aspect-ratio: 1/1;
-}
-
-#main-area-grid{
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-
-    height: 100%;
-    width: 100%;
-}
-
-.tile{
-    height: 100%; 
-    width: 100%;
-
-    background-color: blanchedalmond;
+.game-container{
+  position: relative;
+  height: 480px;
+  width: 640px;
+  outline: 1px solid white;
+  margin: 0 auto;
+  margin-top: 20px;
 }
