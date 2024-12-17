@@ -3,32 +3,39 @@ class Overworld {
     this.element = config.element;
     this.canvas = this.element.querySelector(".game-canvas");
     this.ctx = this.canvas.getContext("2d");
+    this.map = null;
+  }
+
+  startGameLoop(){
+    const step = () => {
+
+        // Подчищае тпредведущие рисунки
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        // Рисует нижний слой
+        this.map.drawLowerImage(this.ctx);
+
+        //Рисует перса
+        Object.values(this.map.gameObjects).forEach(object => {
+            object.x += 0.02;
+            object.sprite.draw(this.ctx);
+        })
+
+        // Рисует верхний слой
+        this.map.drawUpperImage(this.ctx);
+        
+
+        requestAnimationFrame(() => {
+            step();
+        })
+    }
+    step();
   }
 
   init() {
-    const image = new Image();
-    image.onload = () => {
-        this.ctx.drawImage(image,0,0);
-    };
-    image.src = '/sprites/places/house-stairs-orig.png';
-    
-    //Добавляю обьекты
-    const Sunny = new GameObject({
-        x: 5,
-        y: 6,
-        src: '/sprites/chars/sunny.png'
-    })
 
-    const Sunny2 = new GameObject({
-        x: 6,
-        y: 7,
-        src: '/sprites/chars/sunny.png'
-    })
-
-
-    setTimeout(() => {
-        Sunny.sprite.draw(this.ctx);
-        Sunny2.sprite.draw(this.ctx);
-    }, 200)
+    this.map = new OverworldMap(window.OverworldMaps.SunnyRoom)
+    this.startGameLoop();
   }
 }
+
