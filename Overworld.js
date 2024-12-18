@@ -8,22 +8,23 @@ class Overworld {
 
   startGameLoop(){
     const step = () => {
-        // Подчищае тпредведущие рисунки
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Рисует нижний слой
-        this.map.drawLowerImage(this.ctx);
+        const cameraPerson = this.map.gameObjects.Sunny;
 
-        //Рисует перса
         Object.values(this.map.gameObjects).forEach(object => {
-            object.update({
-              arrow: this.directionInput.direction
-            });
-            object.sprite.draw(this.ctx);
+          object.update({
+            arrow: this.directionInput.direction
+          });
         })
 
-        // Рисует верхний слой
-        this.map.drawUpperImage(this.ctx);
+        this.map.drawLowerImage(this.ctx, cameraPerson);
+
+        Object.values(this.map.gameObjects).forEach(object => {
+          object.sprite.draw(this.ctx, cameraPerson);
+        })
+
+        this.map.drawUpperImage(this.ctx, cameraPerson);
 
         requestAnimationFrame(() => {
             step();

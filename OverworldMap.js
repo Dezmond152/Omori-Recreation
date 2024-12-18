@@ -5,16 +5,24 @@ class OverworldMap{
         this.lowerImage = new Image();
         this.lowerImage.src = config.lowerSrc;
 
-        this.upperSrc = new Image();
-        this.upperSrc.src = config.upperSrc;
+        this.upperImage = new Image();
+        this.upperImage.src = config.upperSrc;
     }
 
-    drawLowerImage(ctx){
-        ctx.drawImage(this.lowerImage, 0, 0)
+    drawLowerImage(ctx, cameraPerson){
+        ctx.drawImage(
+        this.lowerImage, 
+        utils.withGrid(7) - cameraPerson.x,
+        utils.withGrid(10) - cameraPerson.y,
+        )
     }
 
-    drawUpperImage(ctx){
-        ctx.drawImage(this.upperSrc, 0, 0)
+    drawUpperImage(ctx, cameraPerson){
+        ctx.drawImage(
+        this.upperImage, 
+        utils.withGrid(7) - cameraPerson.x,
+        utils.withGrid(10) - cameraPerson.y,
+        )
     }
 }
 
@@ -26,7 +34,7 @@ window.OverworldMaps = {
             Sunny: new Person({
                 isPlayerControled: true,
                 x: utils.withGrid(6),
-                y: utils.withGrid(6),
+                y: utils.withGrid(9),
                 src: '/sprites/chars/sunny.png'
             }),
 
