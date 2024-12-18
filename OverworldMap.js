@@ -30,11 +30,11 @@ window.OverworldMaps = {
                 src: '/sprites/chars/sunny.png'
             }),
 
-            Sunny2: new Person({
-                x: utils.withGrid(5),
-                y: utils.withGrid(5),
-                src: '/sprites/chars/sunny.png'
-            })
+            // Sunny2: new Person({
+            //     x: utils.withGrid(5),
+            //     y: utils.withGrid(5),
+            //     src: '/sprites/chars/sunny.png'
+            // })
         }
     },
 
