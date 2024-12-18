@@ -8,7 +8,6 @@ class Overworld {
 
   startGameLoop(){
     const step = () => {
-
         // Подчищае тпредведущие рисунки
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -17,13 +16,14 @@ class Overworld {
 
         //Рисует перса
         Object.values(this.map.gameObjects).forEach(object => {
-            object.x += 0.02;
+            object.update({
+              arrow: this.directionInput.direction
+            });
             object.sprite.draw(this.ctx);
         })
 
         // Рисует верхний слой
         this.map.drawUpperImage(this.ctx);
-        
 
         requestAnimationFrame(() => {
             step();
@@ -33,8 +33,11 @@ class Overworld {
   }
 
   init() {
+    this.map = new OverworldMap(window.OverworldMaps.HouseStairs)
 
-    this.map = new OverworldMap(window.OverworldMaps.SunnyRoom)
+    this.directionInput = new DirectionInput();
+    this.directionInput.init();
+
     this.startGameLoop();
   }
 }

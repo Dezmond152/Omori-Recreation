@@ -23,9 +23,16 @@ window.OverworldMaps = {
         lowerSrc: '/sprites/places/house-stairs-orig.png',
         upperSrc: '/sprites/places/house-stairs-orig-layout.png',
         gameObjects: {
-            Sunny: new GameObject({
-                x: 6,
-                y: 6,
+            Sunny: new Person({
+                isPlayerControled: true,
+                x: utils.withGrid(6),
+                y: utils.withGrid(6),
+                src: '/sprites/chars/sunny.png'
+            }),
+
+            Sunny2: new Person({
+                x: utils.withGrid(5),
+                y: utils.withGrid(5),
                 src: '/sprites/chars/sunny.png'
             })
         }
@@ -36,19 +43,11 @@ window.OverworldMaps = {
         upperSrc: 'sprites/places/SunnyRoom-layout.png',
         gameObjects: {
             Sunny: new GameObject({
-                x: 4,
-                y: 3,
+                x: utils.withGrid(5),
+                y: utils.withGrid(6),
                 src: '/sprites/chars/sunny.png'
             })
         }
     },
 
-
-
-    BathRoom: {
-
-    },
-    ParentsRoom: {
-
-    }
 }
