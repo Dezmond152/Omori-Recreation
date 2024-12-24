@@ -6,35 +6,37 @@ class Overworld {
     this.map = null;
   }
 
-  startGameLoop(){
+  startGameLoop() {
     const step = () => {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        const cameraPerson = this.map.gameObjects.Sunny;
+      const cameraPerson = this.map.gameObjects.Sunny;
 
-        Object.values(this.map.gameObjects).forEach(object => {
-          object.update({
-            arrow: this.directionInput.direction
-          });
-        })
+      Object.values(this.map.gameObjects).forEach((object) => {
+        object.update({
+          arrow: this.directionInput.direction,
+          map: this.map,
+        });
+      });
 
-        this.map.drawLowerImage(this.ctx, cameraPerson);
+      this.map.drawLowerImage(this.ctx, cameraPerson);
 
-        Object.values(this.map.gameObjects).forEach(object => {
-          object.sprite.draw(this.ctx, cameraPerson);
-        })
+      Object.values(this.map.gameObjects).forEach((object) => {
+        object.sprite.draw(this.ctx, cameraPerson);
+      });
 
-        this.map.drawUpperImage(this.ctx, cameraPerson);
+      this.map.drawUpperImage(this.ctx, cameraPerson);
 
-        requestAnimationFrame(() => {
-            step();
-        })
-    }
+      requestAnimationFrame(() => {
+        step();
+      });
+    };
     step();
   }
 
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.HouseStairs)
+    this.map = new OverworldMap(window.OverworldMaps.HouseStairs);
+    this.map.mountObjects();
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();
@@ -42,4 +44,3 @@ class Overworld {
     this.startGameLoop();
   }
 }
-
