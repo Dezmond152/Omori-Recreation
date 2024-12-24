@@ -54,14 +54,14 @@ class OverworldMap {
 
 window.OverworldMaps = {
   HouseStairs: {
-    lowerSrc: "/sprites/places/house-stairs-orig.png",
-    upperSrc: "/sprites/places/house-stairs-orig-layout.png",
+    lowerSrc: "./sprites/places/house-stairs-orig.png",
+    upperSrc: "./sprites/places/house-stairs-orig-layout.png",
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
         x: utils.withGrid(6),
         y: utils.withGrid(6),
-        src: "/sprites/chars/sunny.png",
+        src: "./sprites/chars/sunny.png",
       }),
     },
     walls: {
@@ -136,8 +136,8 @@ window.OverworldMaps = {
   },
 
   SunnyRoom: {
-    lowerSrc: "/sprites/places/SunnyRoom.png",
-    upperSrc: "sprites/places/SunnyRoom-layout.png",
+    lowerSrc: "./sprites/places/SunnyRoom.png",
+    upperSrc: "./sprites/places/SunnyRoom-layout.png",
     gameObjects: {
       Sunny: new GameObject({
         x: utils.withGrid(5),
