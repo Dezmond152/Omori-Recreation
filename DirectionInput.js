@@ -11,7 +11,7 @@ class DirectionInput {
 			"KeyA"       : "left",
 			"ArrowRight" : "right",
 			"KeyD"       : "right",
-		}
+		};
 	}
 
 	get direction() {
@@ -32,8 +32,6 @@ class DirectionInput {
 			if (index > -1) {
 				this.heldDIrections.splice(index, 1);
 			}
-
 		});
-
 	}
 }

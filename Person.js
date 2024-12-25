@@ -42,7 +42,13 @@ class Person extends GameObject {
     const [property, change] = this.directionUpdate[this.direction];
     this[property] += change * 2;
     this.movingProgressRemaining -= 1;
+
+    if (this.movingProgressRemaining === 0) {
+      console.log('закончил');
+    }
+
   }
+  
 
   updateSprite() {
     if (this.movingProgressRemaining > 0) {

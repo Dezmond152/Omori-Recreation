@@ -11,6 +11,8 @@ class Overworld {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       const cameraPerson = this.map.gameObjects.Sunny;
+      // console.log(this.map);
+      
 
       Object.values(this.map.gameObjects).forEach((object) => {
         object.update({
@@ -27,6 +29,11 @@ class Overworld {
 
       this.map.drawUpperImage(this.ctx, cameraPerson);
 
+      // let playerX = this.map.gameObjects.Sunny.x;
+      // let playerY = this.map.gameObjects.Sunny.y;
+      // this.map.checkTrigger(playerX, playerY);
+
+
       requestAnimationFrame(() => {
         step();
       });
@@ -34,8 +41,10 @@ class Overworld {
     step();
   }
 
+  
+
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.HouseStairs);
+    this.map = new OverworldMap(window.OverworldMaps.SunnyRoom);
     this.map.mountObjects();
 
     this.directionInput = new DirectionInput();
@@ -44,3 +53,4 @@ class Overworld {
     this.startGameLoop();
   }
 }
+

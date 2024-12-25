@@ -17,7 +17,7 @@ class Sprite {
       "walk-up"   : [[0, 3],[1, 3],[2, 3],[1, 3]],
     };
 
-    this.currentAnimation = "walk-down"; //config.currentAnimation || "idle-down"
+    this.currentAnimation = "walk-down";
     this.currentAnimationFrame = 0;
 
     this.animationFrameLimit = config.animationFrameLimit || 10;
@@ -59,7 +59,16 @@ class Sprite {
     const [fremeX, frameY] = this.frame;
 
     this.isLoaded &&
-      ctx.drawImage(this.image, fremeX * 32, frameY * 32, 32, 32, x, y, 32, 32);
+      ctx.drawImage(this.image, 
+        fremeX * 32, 
+        frameY * 32, 
+        32, 
+        32, 
+        x, 
+        y, 
+        32, 
+        32
+      );
 
     this.updateAnimationProgress();
   }

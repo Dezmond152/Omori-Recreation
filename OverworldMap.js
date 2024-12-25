@@ -2,6 +2,8 @@ class OverworldMap {
   constructor(config) {
     this.gameObjects = config.gameObjects;
     this.walls = config.walls || {};
+    this.triggers = config.triggers || {};
+    this.trigerActive = false;
 
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;
@@ -32,25 +34,44 @@ class OverworldMap {
   }
 
   mountObjects() {
-    Object.values(this.gameObjects).forEach(o => {
+    Object.values(this.gameObjects).forEach((o) => {
       o.mount(this);
-    })
+    });
   }
 
-  addWall(x,y){
+  addWall(x, y) {
     this.walls[`${x},${y}`] = true;
   }
 
-  removeWall(x,y){
+  removeWall(x, y) {
     delete this.walls[`${x},${y}`];
   }
 
-  moveWall(wasX, wasY, direction){
+  moveWall(wasX, wasY, direction) {
     this.removeWall(wasX, wasY);
-    const {x,y} = utils.nextPosition(wasX, wasY, direction);
-    this.addWall(x,y);
+    const { x, y } = utils.nextPosition(wasX, wasY, direction);
+    this.addWall(x, y);
+  }
+
+  // onStepTrigger() {
+  //   console.log("Player on trigger");
+  // }
+
+  // onPressTrigger() {
+  //   console.log("You pressed trigger");
+  // }
+
+  checkTrigger(playerX, playerY) {
+    let playerCord = `${playerX},${playerY}`;
+    if (this.triggers[playerCord]) {
+      this.trigerActive = true;
+    } else{
+      this.trigerActive = false;
+    }
+    console.log(this.trigerActive);
   }
 }
+
 
 window.OverworldMaps = {
   HouseStairs: {
@@ -65,7 +86,6 @@ window.OverworldMaps = {
       }),
     },
     walls: {
-      // "32,32" : true
       [utils.asGridCord(0, 3)]: true,
       [utils.asGridCord(1, 3)]: true,
       [utils.asGridCord(2, 3)]: true,
@@ -139,11 +159,43 @@ window.OverworldMaps = {
     lowerSrc: "./sprites/places/SunnyRoom.png",
     upperSrc: "./sprites/places/SunnyRoom-layout.png",
     gameObjects: {
-      Sunny: new GameObject({
-        x: utils.withGrid(5),
-        y: utils.withGrid(6),
+      Sunny: new Person({
+        isPlayerControled: true,
+        x: utils.withGrid(3),
+        y: utils.withGrid(4),
         src: "/sprites/chars/sunny.png",
       }),
+    },
+
+    triggers: {
+      [utils.asGridCord(5, 4)]: 'onStepTrigger',
+      [utils.asGridCord(5, 4)]: 'onStepTrigger',
+      [utils.asGridCord(0, 5)]: 'onPressTrigger',
+    },
+
+    walls: {
+      [utils.asGridCord(0, 2)]: true,
+      [utils.asGridCord(1, 2)]: true,
+      [utils.asGridCord(2, 2)]: true,
+      [utils.asGridCord(3, 2)]: true,
+      [utils.asGridCord(4, 2)]: true,
+      [utils.asGridCord(5, 3)]: true,
+      [utils.asGridCord(6, 2)]: true,
+      [utils.asGridCord(7, 3)]: true,
+      [utils.asGridCord(7, 4)]: true,
+      [utils.asGridCord(7, 5)]: true,
+      [utils.asGridCord(6, 6)]: true,
+      [utils.asGridCord(5, 7)]: true,
+      [utils.asGridCord(4, 6)]: true,
+      [utils.asGridCord(3, 6)]: true,
+      [utils.asGridCord(2, 6)]: true,
+      [utils.asGridCord(2, 7)]: true,
+      [utils.asGridCord(1, 8)]: true,
+      [utils.asGridCord(0, 7)]: true,
+      [utils.asGridCord(0, 6)]: true,
+      [utils.asGridCord(-1, 5)]: true,
+      [utils.asGridCord(0, 4)]: true,
+      [utils.asGridCord(-1, 3)]: true,
     },
   },
 };
