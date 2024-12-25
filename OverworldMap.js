@@ -68,7 +68,7 @@ class OverworldMap {
     } else{
       this.trigerActive = false;
     }
-    console.log(this.trigerActive);
+    console.log(this.trigerActive);;
   }
 }
 

@@ -15,7 +15,7 @@ class Person extends GameObject {
 
   update(state) {
     if (this.movingProgressRemaining > 0) {
-      this.updatePosition();
+      this.updatePosition(state);
     } else {
       if (this.isPlayerControled && state.arrow) {
         this.startBehavior(state, {
@@ -38,19 +38,22 @@ class Person extends GameObject {
     }
   }
 
-  updatePosition() {
+  updatePosition(state) {
     const [property, change] = this.directionUpdate[this.direction];
     this[property] += change * 2;
     this.movingProgressRemaining -= 1;
 
     if (this.movingProgressRemaining === 0) {
-      console.log('закончил');
+      console.log('закончил анимацию');
+      let playerX = state.map.gameObjects.Sunny.x;
+      let playerY = state.map.gameObjects.Sunny.y;
+      state.map.checkTrigger(playerX, playerY);
     }
 
   }
   
 
-  updateSprite() {
+  updateSprite(state) {
     if (this.movingProgressRemaining > 0) {
       this.sprite.setAnimation("walk-" + this.direction);
       return;
