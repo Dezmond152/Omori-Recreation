@@ -42,7 +42,7 @@ class Overworld {
     this.map.mountObjects();
 
     this.directionInput = new DirectionInput();
-    this.directionInput.init();
+    this.directionInput.init({ map: this.map });
 
     this.startGameLoop();
   }

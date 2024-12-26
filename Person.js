@@ -27,9 +27,6 @@ class Person extends GameObject {
     }
   }
 
-
-
-
   startBehavior(state, behavior) {
     this.direction = behavior.direction;
     if (behavior.type === "walk") {
