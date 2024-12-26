@@ -50,7 +50,8 @@ class DirectionInput {
 				const y = state.map.gameObjects.Sunny.y;
 				const direction = state.map.gameObjects.Sunny.direction;
 				const frontTile = this.getTileInFront(x, y, direction);
-				state.map.checkTrigger(frontTile.x, frontTile.y);
+			  const triger = "onPressTrigger";
+				state.map.checkTrigger(frontTile.x, frontTile.y, triger);
 			}
 		});
 	}

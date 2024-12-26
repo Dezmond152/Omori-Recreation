@@ -61,11 +61,12 @@ class OverworldMap {
     console.log("You pressed trigger");
   }
 
-  checkTrigger(playerX, playerY) {
-    let playerCord = `${playerX},${playerY}`;
-    if (this.triggers[playerCord]) {
-      this.activateTrigger(this.triggers[playerCord]);
-    } 
+  checkTrigger(playerX, playerY, trigger) {
+    const playerCord = `${playerX},${playerY}`;
+
+    if (this.triggers[playerCord] === trigger) {
+      this.activateTrigger(trigger);
+    }
   }
 
   activateTrigger(triggerType) {
