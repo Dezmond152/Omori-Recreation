@@ -12,7 +12,6 @@ class Overworld {
 
       const cameraPerson = this.map.gameObjects.Sunny;
       // console.log(this.map);
-      
 
       Object.values(this.map.gameObjects).forEach((object) => {
         object.update({
@@ -28,11 +27,6 @@ class Overworld {
       });
 
       this.map.drawUpperImage(this.ctx, cameraPerson);
-
-      // let playerX = this.map.gameObjects.Sunny.x;
-      // let playerY = this.map.gameObjects.Sunny.y;
-      // this.map.checkTrigger(playerX, playerY);
-
 
       requestAnimationFrame(() => {
         step();

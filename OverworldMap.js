@@ -53,22 +53,25 @@ class OverworldMap {
     this.addWall(x, y);
   }
 
-  // onStepTrigger() {
-  //   console.log("Player on trigger");
-  // }
+  onStepTrigger() {
+    console.log("You steped on trigger");
+  }
 
-  // onPressTrigger() {
-  //   console.log("You pressed trigger");
-  // }
+  onPressTrigger() {
+    console.log("You pressed trigger");
+  }
 
   checkTrigger(playerX, playerY) {
     let playerCord = `${playerX},${playerY}`;
     if (this.triggers[playerCord]) {
-      this.trigerActive = true;
-    } else{
-      this.trigerActive = false;
+      this.activateTrigger(this.triggers[playerCord]);
+    } 
+  }
+
+  activateTrigger(triggerType) {
+    if (typeof this[triggerType] === 'function') {
+      this[triggerType]();
     }
-    console.log(this.trigerActive);;
   }
 }
 
@@ -163,14 +166,13 @@ window.OverworldMaps = {
         isPlayerControled: true,
         x: utils.withGrid(3),
         y: utils.withGrid(4),
-        src: "/sprites/chars/sunny.png",
+        src: "./sprites/chars/sunny.png",
       }),
     },
 
     triggers: {
-      [utils.asGridCord(5, 4)]: 'onStepTrigger',
-      [utils.asGridCord(5, 4)]: 'onStepTrigger',
-      [utils.asGridCord(0, 5)]: 'onPressTrigger',
+      [utils.asGridCord(1, 7)]: 'onStepTrigger',
+      [utils.asGridCord(3, 2)]: 'onPressTrigger',
     },
 
     walls: {

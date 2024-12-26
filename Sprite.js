@@ -17,13 +17,14 @@ class Sprite {
       "walk-up"   : [[0, 3],[1, 3],[2, 3],[1, 3]],
     };
 
-    this.currentAnimation = "walk-down";
+    this.currentAnimation = "idle-down";
     this.currentAnimationFrame = 0;
 
     this.animationFrameLimit = config.animationFrameLimit || 10;
     this.animationFrameProgress = this.animationFrameLimit;
 
     this.gameObject = config.gameObject;
+    
   }
 
   get frame() {

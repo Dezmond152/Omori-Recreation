@@ -27,6 +27,9 @@ class Person extends GameObject {
     }
   }
 
+
+
+
   startBehavior(state, behavior) {
     this.direction = behavior.direction;
     if (behavior.type === "walk") {
@@ -44,7 +47,6 @@ class Person extends GameObject {
     this.movingProgressRemaining -= 1;
 
     if (this.movingProgressRemaining === 0) {
-      console.log('закончил анимацию');
       let playerX = state.map.gameObjects.Sunny.x;
       let playerY = state.map.gameObjects.Sunny.y;
       state.map.checkTrigger(playerX, playerY);
