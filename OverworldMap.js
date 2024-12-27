@@ -3,13 +3,13 @@ class OverworldMap {
     this.gameObjects = config.gameObjects;
     this.walls = config.walls || {};
     this.triggers = config.triggers || {};
-    this.trigerActive = false;
 
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;
 
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
+
   }
 
   drawLowerImage(ctx, cameraPerson) {
@@ -27,7 +27,7 @@ class OverworldMap {
       utils.withGrid(10) - cameraPerson.y
     );
   }
-
+  
   isSpaceTaken(currentX, currentY, direction) {
     const { x, y } = utils.nextPosition(currentX, currentY, direction);
     return this.walls[`${x},${y}`] || false;
@@ -53,9 +53,13 @@ class OverworldMap {
     this.addWall(x, y);
   }
 
-  onStepTrigger() {
-    console.log("You steped on trigger");
+  
+  onStepTrigger(mapName, newCords) {
+
   }
+ 
+  
+  
 
   onPressTrigger() {
     console.log("You pressed trigger");
@@ -64,18 +68,27 @@ class OverworldMap {
   checkTrigger(playerX, playerY, trigger) {
     const playerCord = `${playerX},${playerY}`;
 
-    if (this.triggers[playerCord] === trigger) {
-      this.activateTrigger(trigger);
+    if (this.triggers[playerCord]?.includes(trigger)) {
+      const [trigger, mapName, newCords] = this.triggers[playerCord];
+      this.activateTrigger(trigger, mapName, newCords);
     }
   }
 
-  activateTrigger(triggerType) {
-    if (typeof this[triggerType] === 'function') {
-      this[triggerType]();
+  activateTrigger(trigger, mapName, newCords) {
+    if(trigger === "onStepTrigger") {
+      this.onStepTrigger(mapName, newCords);
     }
+
+
+    // если приходит onPressTrigger
+    // 
+    // 
+    // if(trigger === "onPressTrigger") {
+    // }
   }
+
+
 }
-
 
 window.OverworldMaps = {
   HouseStairs: {
@@ -84,11 +97,18 @@ window.OverworldMaps = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(6),
-        y: utils.withGrid(6),
+        x: utils.withGrid(11),
+        y: utils.withGrid(4),
         src: "./sprites/chars/sunny.png",
       }),
     },
+
+    triggers: {
+      [utils.asGridCord(1, 3)]: ['onPressTrigger'],
+      [utils.asGridCord(8, 3)]: ['onPressTrigger'],
+      [utils.asGridCord(11, 3)]: ['onPressTrigger'],
+    },
+
     walls: {
       [utils.asGridCord(0, 3)]: true,
       [utils.asGridCord(1, 3)]: true,
@@ -165,15 +185,15 @@ window.OverworldMaps = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(3),
-        y: utils.withGrid(4),
+        x: utils.withGrid(1),
+        y: utils.withGrid(6),
         src: "./sprites/chars/sunny.png",
       }),
     },
 
     triggers: {
-      [utils.asGridCord(1, 7)]: 'onStepTrigger',
-      [utils.asGridCord(3, 2)]: 'onPressTrigger',
+      [utils.asGridCord(1, 7)]: ['onStepTrigger', 'HouseStairs', [utils.asGridCord(11, 4)]],
+      [utils.asGridCord(3, 2)]: ['onPressTrigger'],
     },
 
     walls: {

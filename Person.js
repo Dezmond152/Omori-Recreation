@@ -44,10 +44,11 @@ class Person extends GameObject {
     this.movingProgressRemaining -= 1;
 
     if (this.movingProgressRemaining === 0) {
-      let playerX = state.map.gameObjects.Sunny.x;
-      let playerY = state.map.gameObjects.Sunny.y;
+      let playerX = this.x;
+      let playerY = this.y;
       let trigger = "onStepTrigger";
       state.map.checkTrigger(playerX, playerY, trigger);
+      // console.log(state.map);
     }
 
   }

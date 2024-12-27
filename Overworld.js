@@ -5,7 +5,7 @@ class Overworld {
     this.ctx = this.canvas.getContext("2d");
     this.map = null;
   }
-
+  
   startGameLoop() {
     const step = () => {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -38,7 +38,7 @@ class Overworld {
   
 
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.SunnyRoom);
+    this.map = new OverworldMap(window.OverworldMaps.SunnyRoom, this.state);
     this.map.mountObjects();
 
     this.directionInput = new DirectionInput();
