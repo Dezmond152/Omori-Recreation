@@ -1,9 +1,16 @@
 class Overworld {
   constructor(config) {
+    this.overworld = null;
     this.element = config.element;
     this.canvas = this.element.querySelector(".game-canvas");
     this.ctx = this.canvas.getContext("2d");
     this.map = null;
+  }
+
+  startMap(mapConfig){
+    this.map = new OverworldMap(mapConfig);
+    this.map.overworld = this;
+    this.map.mountObjects();
   }
   
   startGameLoop() {
@@ -38,8 +45,7 @@ class Overworld {
   
 
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.SunnyRoom, this.state);
-    this.map.mountObjects();
+    this.startMap(window.OverworldMaps.SunnyRoom);
 
     this.directionInput = new DirectionInput();
     this.directionInput.init({ map: this.map });

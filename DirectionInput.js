@@ -44,6 +44,8 @@ class DirectionInput {
 			}
 		});
 
+
+		///
 		document.addEventListener('keydown', e => {
 			if (e.code === "KeyZ") {
 				const x = state.map.gameObjects.Sunny.x;
@@ -54,5 +56,6 @@ class DirectionInput {
 				state.map.checkTrigger(frontTile.x, frontTile.y, triger);
 			}
 		});
+		///
 	}
 }
