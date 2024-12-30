@@ -9,11 +9,4 @@ class GameObject {
       src: config.src || "./sprites/chars/sunny.png",
     });
   }
-
-  mount(map) {
-    this.isMounted = true;
-    map.addWall(this.x, this.y);
-  }
-
-  update() {}
 }

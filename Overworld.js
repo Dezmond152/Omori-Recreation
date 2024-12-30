@@ -7,10 +7,11 @@ class Overworld {
     this.map = null;
   }
 
+  
+
   startMap(mapConfig){
-    this.map = new OverworldMap(mapConfig);
+    this.map = new OverworldMaping(mapConfig);
     this.map.overworld = this;
-    this.map.mountObjects();
   }
   
   startGameLoop() {
@@ -43,7 +44,6 @@ class Overworld {
   }
 
   
-
   init() {
     this.startMap(window.OverworldMaps.SunnyRoom);
 
