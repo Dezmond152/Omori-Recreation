@@ -47,13 +47,10 @@ class OverworldMaping {
     this.addWall(x, y);
   }
 
-  
+  //----------------------------------------------
   onStepTrigger(mapName, newCords) {
 
   }
- 
-  
-  
 
   onPressTrigger() {
     console.log("You pressed trigger");
@@ -73,15 +70,13 @@ class OverworldMaping {
       this.onStepTrigger(mapName, newCords);
     }
 
-
     // если приходит onPressTrigger
     // 
     // 
     // if(trigger === "onPressTrigger") {
     // }
   }
-
-
+  //----------------------------------------------
 }
 
 

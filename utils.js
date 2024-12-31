@@ -2,9 +2,11 @@ const utils = {
   withGrid(number) {
     return number * 32;
   },
+
   asGridCord(x, y) {
     return `${x * 32},${y * 32}`;
   },
+
   nextPosition(initialX, initialY, direction) {
     let x = initialX;
     let y = initialY;

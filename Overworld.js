@@ -7,19 +7,9 @@ class Overworld {
     this.map = null;
   }
 
-  
-
-  startMap(mapConfig){
-    this.map = new OverworldMaping(mapConfig);
-    this.map.overworld = this;
-  }
-  
   startGameLoop() {
     const step = () => {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-      const cameraPerson = this.map.gameObjects.Sunny;
-      // console.log(this.map);
 
       Object.values(this.map.gameObjects).forEach((object) => {
         object.update({
@@ -27,6 +17,11 @@ class Overworld {
           map: this.map,
         });
       });
+
+      const cameraPerson = this.map.gameObjects.Sunny;
+
+      // console.log(cameraPerson);
+      // console.log(this.map);
 
       this.map.drawLowerImage(this.ctx, cameraPerson);
 
@@ -43,14 +38,19 @@ class Overworld {
     step();
   }
 
-  
-  init() {
-    this.startMap(window.OverworldMaps.SunnyRoom);
+  startMap(mapConfig) {
+    this.map = new OverworldMaping(mapConfig);
+    this.map.overworld = this;
+  }
 
+  startDirectionInput() {
     this.directionInput = new DirectionInput();
     this.directionInput.init({ map: this.map });
+  }
 
+  init() {
+    this.startMap(window.MapsConfig.HouseStairs);
+    this.startDirectionInput();
     this.startGameLoop();
   }
 }
-

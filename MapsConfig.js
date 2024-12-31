@@ -1,4 +1,4 @@
-window.OverworldMaps = {
+window.MapsConfig = {
   HouseStairs: {
     lowerSrc: "./sprites/places/house-stairs-orig.png",
     upperSrc: "./sprites/places/house-stairs-orig-layout.png",
@@ -93,9 +93,10 @@ window.OverworldMaps = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(1),
-        y: utils.withGrid(6),
+        x: utils.withGrid(3),
+        y: utils.withGrid(4),
         src: "./sprites/chars/sunny.png",
+        direction: "down",
       }),
     },
 

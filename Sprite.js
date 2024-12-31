@@ -2,6 +2,12 @@ class Sprite {
   constructor(config) {
     this.image = new Image();
     this.image.src = config.src;
+    this.currentAnimation = "idle-down";
+    this.currentAnimationFrame = 0;
+    this.animationFrameLimit = 10;
+    this.animationFrameProgress = this.animationFrameLimit;
+    this.gameObject = config.gameObject;
+    
     this.image.onload = () => {
       this.isLoaded = true;
     };
@@ -16,15 +22,6 @@ class Sprite {
       "walk-right": [[0, 2],[1, 2],[2, 2],[1, 2]],
       "walk-up"   : [[0, 3],[1, 3],[2, 3],[1, 3]],
     };
-
-    this.currentAnimation = "idle-down";
-    this.currentAnimationFrame = 0;
-
-    this.animationFrameLimit = config.animationFrameLimit || 10;
-    this.animationFrameProgress = this.animationFrameLimit;
-
-    this.gameObject = config.gameObject;
-    
   }
 
   get frame() {
