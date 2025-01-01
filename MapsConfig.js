@@ -130,4 +130,26 @@ window.MapsConfig = {
       [utils.asGridCord(-1, 3)]: true,
     },
   },
+
+  SunnyKirchen: {
+    lowerSrc: "",
+    upperSrc: "",
+    gameObjects: {
+      Sunny: new Person({
+        isPlayerControled: true,
+        x: utils.withGrid(),
+        y: utils.withGrid(),
+        src: "./sprites/chars/sunny.png",
+        direction: "down",
+      }),
+    },
+
+    triggers: {
+
+    },
+
+    walls: {
+
+    },
+  },
 };
