@@ -49,7 +49,7 @@ class Overworld {
   }
 
   init() {
-    this.startMap(window.MapsConfig.HouseStairs);
+    this.startMap(window.MapsConfig.HouseDiner);
     this.startDirectionInput();
     this.startGameLoop();
   }
