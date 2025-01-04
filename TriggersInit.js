@@ -24,13 +24,17 @@ class TriggersInit{
       const checkCord = `${x},${y}`;
 
       if (this.state.map.triggers[checkCord]?.includes("onStepTrigger")) {
-        console.log("sex")
+        const arr = this.state.map.triggers[checkCord];
+        const newMap = arr ? arr[1] : undefined;
+        console.log(newMap);
+        
+        this.state.map.overworld.startMap(window.MapsConfig[newMap]);
       }
     }
 
     if(triggerType === 'onPressTrigger') {
       const frontTile = this.getTileInFront(direction, x, y);
-      console.log(frontTile);
+      
     }
   }
 

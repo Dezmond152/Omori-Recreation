@@ -5,8 +5,8 @@ window.MapsConfig = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(11),
-        y: utils.withGrid(4),
+        x: utils.withGrid(6),
+        y: utils.withGrid(6),
         src: "./sprites/chars/sunny.png",
       }),
     },

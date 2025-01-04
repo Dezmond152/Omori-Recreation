@@ -5,7 +5,6 @@ class Overworld {
     this.canvas = this.element.querySelector(".game-canvas");
     this.ctx = this.canvas.getContext("2d");
     this.map = null;
-    this.currentMap = "SunnyRoom";
   }
 
   startGameLoop() {
@@ -53,7 +52,7 @@ class Overworld {
   }
 
   init() {
-    this.startMap(window.MapsConfig[this.currentMap]);
+    this.startMap(window.MapsConfig.SunnyRoom);
     this.startTriggers();
     this.startDirectionInput();
     this.startGameLoop();
