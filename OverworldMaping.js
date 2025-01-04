@@ -46,37 +46,6 @@ class OverworldMaping {
     const { x, y } = utils.nextPosition(wasX, wasY, direction);
     this.addWall(x, y);
   }
-
-  //----------------------------------------------
-  onStepTrigger(mapName, newCords) {
-
-  }
-
-  onPressTrigger() {
-    console.log("You pressed trigger");
-  }
-
-  checkTrigger(playerX, playerY, trigger) {
-    const playerCord = `${playerX},${playerY}`;
-
-    if (this.triggers[playerCord]?.includes(trigger)) {
-      const [trigger, mapName, newCords] = this.triggers[playerCord];
-      this.activateTrigger(trigger, mapName, newCords);
-    }
-  }
-
-  activateTrigger(trigger, mapName, newCords) {
-    if(trigger === "onStepTrigger") {
-      this.onStepTrigger(mapName, newCords);
-    }
-
-    // если приходит onPressTrigger
-    // 
-    // 
-    // if(trigger === "onPressTrigger") {
-    // }
-  }
-  //----------------------------------------------
 }
 
 

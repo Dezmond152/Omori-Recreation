@@ -42,15 +42,9 @@ class Person extends GameObject {
     this.movingProgressRemaining -= 1;
 
 
-    //----------------------------------------------
     if (this.movingProgressRemaining === 0) {
-      let playerX = this.x;
-      let playerY = this.y;
-      let trigger = "onStepTrigger";
-      state.map.checkTrigger(playerX, playerY, trigger);
-      // console.log(state.map);
+      state.map.overworld.TriggersInit.checkTrigger("onStepTrigger");
     }
-    //----------------------------------------------
   }
   
 
