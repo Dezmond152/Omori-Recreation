@@ -28,6 +28,11 @@ class Overworld {
 
       this.map.drawUpperImage(this.ctx, cameraPerson);
 
+
+      // console.log(this.map)
+
+
+
       requestAnimationFrame(() => {
         step();
       });
@@ -38,6 +43,7 @@ class Overworld {
   startMap(mapConfig) {
     this.map = new OverworldMaping(mapConfig);
     this.map.overworld = this;
+    // console.log(mapConfig)
   }
 
   startTriggers() {

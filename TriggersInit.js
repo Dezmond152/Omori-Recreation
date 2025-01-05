@@ -22,13 +22,16 @@ class TriggersInit{
    
     if(triggerType === 'onStepTrigger') {
       const checkCord = `${x},${y}`;
+      console.log(this.state.map.triggers);
 
       if (this.state.map.triggers[checkCord]?.includes("onStepTrigger")) {
         const arr = this.state.map.triggers[checkCord];
         const newMap = arr ? arr[1] : undefined;
-        console.log(newMap);
-        
+        // console.log(newMap);
+
+
         this.state.map.overworld.startMap(window.MapsConfig[newMap]);
+        this.state.map.overworld.startTriggers();
       }
     }
 
@@ -42,6 +45,7 @@ class TriggersInit{
     document.addEventListener('keydown', e => {
 			if (e.code === this.interactionKey) {
         this.checkTrigger("onPressTrigger")
+        console.log(this.state.map.triggers);
 			}
 		});
   }

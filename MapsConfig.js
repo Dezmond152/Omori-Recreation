@@ -5,16 +5,15 @@ window.MapsConfig = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(6),
-        y: utils.withGrid(6),
+        x: utils.withGrid(11),
+        y: utils.withGrid(4),
         src: "./sprites/chars/sunny.png",
+        direction: "down",
       }),
     },
 
     triggers: {
-      [utils.asGridCord(1, 3)]: ['onPressTrigger'],
-      [utils.asGridCord(8, 3)]: ['onPressTrigger'],
-      [utils.asGridCord(11, 3)]: ['onPressTrigger'],
+      [utils.asGridCord(6, 15)]: ['onStepTrigger', 'HouseHall', [utils.asGridCord(3, 4)]],
     },
 
     walls: {
@@ -93,8 +92,8 @@ window.MapsConfig = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(3),
-        y: utils.withGrid(4),
+        x: utils.withGrid(4),
+        y: utils.withGrid(3),
         src: "./sprites/chars/sunny.png",
         direction: "down",
       }),

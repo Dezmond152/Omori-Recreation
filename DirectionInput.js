@@ -19,19 +19,22 @@ class DirectionInput {
 	}
 
 	init(state) {
-		document.addEventListener("keydown", e => {
-			const dir = this.moveKeys[e.code];
-			if (dir && this.heldDIrections.indexOf(dir) === -1) {
-				this.heldDIrections.unshift(dir);
-			}
-		});
+		const handleKeyDown = (e) => {
+      const dir = this.moveKeys[e.code];
+      if (dir && this.heldDIrections.indexOf(dir) === -1) {
+        this.heldDIrections.unshift(dir);
+      }
+    };
 
-		document.addEventListener("keyup", e => {
-			const dir = this.moveKeys[e.code];
-			const index = this.heldDIrections.indexOf(dir);
-			if (index > -1) {
-				this.heldDIrections.splice(index, 1);
-			}
-		});	
+    const handleKeyUp = (e) => {
+      const dir = this.moveKeys[e.code];
+      const index = this.heldDIrections.indexOf(dir);
+      if (index > -1) {
+        this.heldDIrections.splice(index, 1);
+      }
+    };
+
+		document.addEventListener("keydown", handleKeyDown);
+		document.addEventListener("keyup", handleKeyUp);
 	}
 }
