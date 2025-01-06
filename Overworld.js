@@ -18,7 +18,9 @@ class Overworld {
         });
       });
 
+
       const cameraPerson = this.map.gameObjects.Sunny;
+
 
       this.map.drawLowerImage(this.ctx, cameraPerson);
 
@@ -26,9 +28,10 @@ class Overworld {
         object.sprite.draw(this.ctx, cameraPerson);
       });
 
+
       this.map.drawUpperImage(this.ctx, cameraPerson);
 
-      
+  
 
       requestAnimationFrame(() => {
         step();

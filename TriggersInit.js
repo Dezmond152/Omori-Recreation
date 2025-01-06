@@ -28,8 +28,8 @@ class TriggersInit{
       if (currentTriggers[checkCord]?.includes("onStepTrigger")) {
         const arr = this.state.map.triggers[checkCord];
         const newMap = arr ? arr[1] : undefined;
-        
         this.updateMap(newMap);
+        
       }
     }
 
@@ -43,6 +43,7 @@ class TriggersInit{
         if(currentTriggers[frontTileKey]?.includes("changeMap")){
           const arr = this.state.map.triggers[frontTileKey];
           const newMap = arr ? arr[1] : undefined;
+          this.doorAnimation();
           this.updateMap(newMap);
         }
 
@@ -53,18 +54,35 @@ class TriggersInit{
     }
   }
   
+  doorAnimation(){
+    const canvas = document.querySelector(".game-canvas");
+    const ctx = canvas.getContext("2d");
+
+    
+    const image = new Image();
+    const ImageSrc = './sprites/places/doors.png';
+    image.src = ImageSrc;
+
+    image.onload = () => {
+      ctx.drawImage(image, 0, 0, 288, 96)
+    };
+
+    console.log('Анимация двери')
+  }
+
   updateMap(newMap){
     const canvas = document.querySelector(".game-canvas");
     const ctx = canvas.getContext("2d");
   
-    canvas.style.transition = "opacity 0.5s";
+    canvas.style.transition = "opacity 0.6s";
     canvas.style.opacity = 0;
+
   
     setTimeout(() => {
       this.state.map.overworld.startMap(window.MapsConfig[newMap]);
       this.state.map.overworld.startTriggers();
   
       canvas.style.opacity = 1;
-    }, 600); 
+    }, 700); 
   }
 }

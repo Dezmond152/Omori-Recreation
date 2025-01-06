@@ -32,13 +32,13 @@ class Person extends GameObject {
         return;
       }
       state.map.moveWall(this.x, this.y, this.direction);
-      this.movingProgressRemaining = 16; // 4/8/16
+      this.movingProgressRemaining = 8; // 4/8/16
     }
   }
 
   updatePosition(state) {
     const [property, change] = this.directionUpdate[this.direction];
-    this[property] += change * 2; // 8/4/2
+    this[property] += change * 4; // 8/4/2
     this.movingProgressRemaining -= 1;
 
 

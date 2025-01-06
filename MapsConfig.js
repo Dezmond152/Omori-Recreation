@@ -21,6 +21,13 @@ window.MapsConfig = {
       [utils.asGridCord(10, 3)]: ['onPressTrigger', 'info'],
     },
 
+    // doors: {
+    //   [utils.asGridCord(11, 3)]: true,
+    //   [utils.asGridCord(1, 3)]: true,
+    //   [utils.asGridCord(8, 3)]: true,
+    // },
+
+
     walls: {
       [utils.asGridCord(0, 3)]: true,
       [utils.asGridCord(1, 3)]: true,

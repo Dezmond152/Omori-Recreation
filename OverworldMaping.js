@@ -2,6 +2,7 @@ class OverworldMaping {
   constructor(config) {
     this.gameObjects = config.gameObjects;
     this.walls = config.walls || {};
+    this.doors = config.doors || {};
     this.triggers = config.triggers || {};
 
     this.lowerImage = new Image();
@@ -45,6 +46,7 @@ class OverworldMaping {
     this.removeWall(wasX, wasY);
     const { x, y } = utils.nextPosition(wasX, wasY, direction);
     this.addWall(x, y);
+    
   }
 }
 
