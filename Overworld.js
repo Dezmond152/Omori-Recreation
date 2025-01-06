@@ -28,10 +28,7 @@ class Overworld {
 
       this.map.drawUpperImage(this.ctx, cameraPerson);
 
-
-      // console.log(this.map)
-
-
+      
 
       requestAnimationFrame(() => {
         step();
@@ -41,20 +38,23 @@ class Overworld {
   }
 
   startMap(mapConfig) {
+    
     this.map = new OverworldMaping(mapConfig);
-    this.map.overworld = this;
-    // console.log(mapConfig)
+    this.map.overworld = this;     
   }
 
   startTriggers() {
     this.TriggersInit = new TriggersInit({ map: this.map });
-    this.TriggersInit.init();
   }
 
   startDirectionInput() {
     this.directionInput = new DirectionInput();
     this.directionInput.init({ map: this.map });
-    // console.log(this);
+  }
+
+  darkenScreen() {
+    this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
   init() {
@@ -64,3 +64,4 @@ class Overworld {
     this.startGameLoop();
   }
 }
+

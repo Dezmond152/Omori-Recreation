@@ -14,6 +14,11 @@ window.MapsConfig = {
 
     triggers: {
       [utils.asGridCord(6, 15)]: ['onStepTrigger', 'HouseHall', [utils.asGridCord(3, 4)]],
+      [utils.asGridCord(11, 3)]: ['onPressTrigger', 'SunnyRoom', 'changeMap', [utils.asGridCord(1, 6)]],
+      [utils.asGridCord(1, 3)]: ['onPressTrigger', 'ParentsRoom', 'changeMap', [utils.asGridCord(1, 6)]],
+      [utils.asGridCord(8, 3)]: ['onPressTrigger', 'HouseBath', 'changeMap', [utils.asGridCord(1, 6)]],
+      [utils.asGridCord(11, 11)]: ['onPressTrigger', 'PianoRoom', 'changeMap', [utils.asGridCord(1, 6)]],
+      [utils.asGridCord(10, 3)]: ['onPressTrigger', 'info'],
     },
 
     walls: {
@@ -101,7 +106,7 @@ window.MapsConfig = {
 
     triggers: {
       [utils.asGridCord(1, 7)]: ['onStepTrigger', 'HouseStairs', [utils.asGridCord(11, 4)]],
-      [utils.asGridCord(3, 2)]: ['onPressTrigger'],
+      [utils.asGridCord(3, 2)]: ['onPressTrigger', 'info'],
     },
 
     walls: {
@@ -136,15 +141,15 @@ window.MapsConfig = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(3),
-        y: utils.withGrid(4),
+        x: utils.withGrid(4),
+        y: utils.withGrid(7),
         src: "./sprites/chars/sunny.png",
-        direction: "down",
+        direction: "up",
       }),
     },
 
     triggers: {
-
+      [utils.asGridCord(4, 7)]: ['onStepTrigger', 'HouseStairs', [utils.asGridCord(8, 4)]],
     },
 
     walls: {
@@ -177,15 +182,15 @@ window.MapsConfig = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(3),
-        y: utils.withGrid(4),
+        x: utils.withGrid(5),
+        y: utils.withGrid(7),
         src: "./sprites/chars/sunny.png",
-        direction: "down",
+        direction: "up",
       }),
     },
 
     triggers: {
-      
+      [utils.asGridCord(5, 7)]: ['onStepTrigger', 'HouseStairs', [utils.asGridCord(1, 4)]],
     },
 
     walls: {
@@ -221,14 +226,14 @@ window.MapsConfig = {
       Sunny: new Person({
         isPlayerControled: true,
         x: utils.withGrid(4),
-        y: utils.withGrid(12),
+        y: utils.withGrid(13),
         src: "./sprites/chars/sunny.png",
         direction: "up",
       }),
     },
 
     triggers: {
-
+      [utils.asGridCord(4, 13)]: ['onStepTrigger', 'HouseStairs', [utils.asGridCord(11, 12)]],
     },
 
     walls: {
@@ -279,7 +284,9 @@ window.MapsConfig = {
     },
 
     triggers: {
-
+      [utils.asGridCord(3, 3)]: ['onPressTrigger', 'HouseStairs', 'changeMap', [utils.asGridCord(6, 15)]],
+      [utils.asGridCord(0, 5)]: ['onStepTrigger', 'HouseKitchen', [utils.asGridCord(8, 4)]],
+      [utils.asGridCord(0, 9)]: ['onStepTrigger', 'HouseDiner', [utils.asGridCord(8, 5)]],
     },
 
     walls: {
@@ -331,7 +338,7 @@ window.MapsConfig = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(3),
+        x: utils.withGrid(8),
         y: utils.withGrid(4),
         src: "./sprites/chars/sunny.png",
         direction: "down",
@@ -339,7 +346,7 @@ window.MapsConfig = {
     },
 
     triggers: {
-
+      [utils.asGridCord(8, 4)]: ['onStepTrigger', 'HouseHall', [utils.asGridCord(0, 5)]],
     },
 
     walls: {
@@ -357,6 +364,7 @@ window.MapsConfig = {
       [utils.asGridCord(6, 6)]: true,
       [utils.asGridCord(5, 6)]: true,
       [utils.asGridCord(4, 7)]: true,
+      [utils.asGridCord(3, 7)]: true,
       [utils.asGridCord(3, 8)]: true,
       [utils.asGridCord(2, 7)]: true,
       [utils.asGridCord(1, 7)]: true,
@@ -374,15 +382,15 @@ window.MapsConfig = {
     gameObjects: {
       Sunny: new Person({
         isPlayerControled: true,
-        x: utils.withGrid(3),
-        y: utils.withGrid(4),
+        x: utils.withGrid(8),
+        y: utils.withGrid(5),
         src: "./sprites/chars/sunny.png",
         direction: "down",
       }),
     },
 
     triggers: {
-
+      [utils.asGridCord(8, 5)]: ['onStepTrigger', 'HouseHall', [utils.asGridCord(0, 9)]],
     },
 
     walls: {

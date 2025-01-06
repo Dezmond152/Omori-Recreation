@@ -12,6 +12,8 @@ class DirectionInput {
 			"ArrowRight" : "right",
 			"KeyD"       : "right",
 		};
+
+		this.interactionKey = "KeyZ";
 	}
 
 	get direction() {
@@ -34,6 +36,13 @@ class DirectionInput {
       }
     };
 
+		const interactKey = (e) => {
+      if (e.code === this.interactionKey) {
+        state.map.overworld.TriggersInit.checkTrigger("onPressTrigger")
+      }
+    }
+  
+    document.addEventListener("keydown", interactKey);
 		document.addEventListener("keydown", handleKeyDown);
 		document.addEventListener("keyup", handleKeyUp);
 	}

@@ -14,7 +14,8 @@ class TriggersInit{
 		}
 	}
 
-
+  
+  
   checkTrigger(triggerType) {
     const x = this.state.map.gameObjects.Sunny.x;
     const y = this.state.map.gameObjects.Sunny.y;
@@ -22,31 +23,48 @@ class TriggersInit{
    
     if(triggerType === 'onStepTrigger') {
       const checkCord = `${x},${y}`;
-      console.log(this.state.map.triggers);
+      const currentTriggers = this.state.map.triggers;
 
-      if (this.state.map.triggers[checkCord]?.includes("onStepTrigger")) {
+      if (currentTriggers[checkCord]?.includes("onStepTrigger")) {
         const arr = this.state.map.triggers[checkCord];
         const newMap = arr ? arr[1] : undefined;
-        // console.log(newMap);
-
-
-        this.state.map.overworld.startMap(window.MapsConfig[newMap]);
-        this.state.map.overworld.startTriggers();
+        
+        this.updateMap(newMap);
       }
     }
 
     if(triggerType === 'onPressTrigger') {
       const frontTile = this.getTileInFront(direction, x, y);
-      
+      const frontTileKey = `${frontTile.x},${frontTile.y}`;
+      const currentTriggers = this.state.map.triggers;
+ 
+      if(currentTriggers[frontTileKey]?.includes("onPressTrigger")){
+        
+        if(currentTriggers[frontTileKey]?.includes("changeMap")){
+          const arr = this.state.map.triggers[frontTileKey];
+          const newMap = arr ? arr[1] : undefined;
+          this.updateMap(newMap);
+        }
+
+        if(currentTriggers[frontTileKey]?.includes("info")){
+          console.log("тут будет инфа")
+        }
+      }
     }
   }
-
-  init(){
-    document.addEventListener('keydown', e => {
-			if (e.code === this.interactionKey) {
-        this.checkTrigger("onPressTrigger")
-        console.log(this.state.map.triggers);
-			}
-		});
+  
+  updateMap(newMap){
+    const canvas = document.querySelector(".game-canvas");
+    const ctx = canvas.getContext("2d");
+  
+    canvas.style.transition = "opacity 0.5s";
+    canvas.style.opacity = 0;
+  
+    setTimeout(() => {
+      this.state.map.overworld.startMap(window.MapsConfig[newMap]);
+      this.state.map.overworld.startTriggers();
+  
+      canvas.style.opacity = 1;
+    }, 600); 
   }
 }
