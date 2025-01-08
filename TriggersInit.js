@@ -1,7 +1,12 @@
 class TriggersInit{
-  constructor(state){
+  constructor(state, ctx, canvas){
+    this.ctx = ctx;
+    this.canvas = canvas;
     this.state = state;
+    this.doors = window.MapsConfig.HouseStairs.doors;
     this.interactionKey = "KeyZ";
+
+    
   }
 
   getTileInFront(direction, x, y){
@@ -37,52 +42,70 @@ class TriggersInit{
       const frontTile = this.getTileInFront(direction, x, y);
       const frontTileKey = `${frontTile.x},${frontTile.y}`;
       const currentTriggers = this.state.map.triggers;
+      
  
       if(currentTriggers[frontTileKey]?.includes("onPressTrigger")){
         
         if(currentTriggers[frontTileKey]?.includes("changeMap")){
-          const arr = this.state.map.triggers[frontTileKey];
+          const arr = currentTriggers[frontTileKey];
           const newMap = arr ? arr[1] : undefined;
-          this.doorAnimation();
-          this.updateMap(newMap);
+    
+          if(currentTriggers[frontTileKey]?.includes('door')){
+            // this.doorAnimation(frontTileKey, this.ctx);
+            
+            this.updateMap(newMap);
+          } else {
+            this.updateMap(newMap);
+          } 
         }
 
         if(currentTriggers[frontTileKey]?.includes("info")){
           console.log("тут будет инфа")
+          // const cameraPerson = this.state.map.gameObjects.Sunny;
+          // this.state.map.drawDoorImage(this.ctx, cameraPerson);
         }
       }
     }
   }
+
+  // doorAnimation(frontTileKey, ctx) {
+  // console.log("Начало doorAnimation");
+
   
-  doorAnimation(){
-    const canvas = document.querySelector(".game-canvas");
-    const ctx = canvas.getContext("2d");
+  //   const [doorCordX, doorCordY] = frontTileKey.split(",").map(Number);  
+  //   const spriteWidth = 32;
+  //   const spriteHeight = 32;
+  //   const frameCount = 4;
+  //   let currentFrame = 0;
+  
+  //   const animate = () => {
+  
+  //     if (currentFrame >= frameCount) {
+  //       console.log("Анимация завершена.");
+  //       return;
+  //     }
 
-    
-    const image = new Image();
-    const ImageSrc = './sprites/places/doors.png';
-    image.src = ImageSrc;
+  //     const frameX = currentFrame * spriteWidth;
+      
+  //     currentFrame++;
+  //     setTimeout(animate, 100);
+  //   };
 
-    image.onload = () => {
-      ctx.drawImage(image, 0, 0, 288, 96)
-    };
+  //   animate(); 
+  // }
+  
 
-    console.log('Анимация двери')
-  }
 
+  
   updateMap(newMap){
-    const canvas = document.querySelector(".game-canvas");
-    const ctx = canvas.getContext("2d");
-  
-    canvas.style.transition = "opacity 0.6s";
-    canvas.style.opacity = 0;
+    this.canvas.style.transition = "opacity 0.6s";
+    this.canvas.style.opacity = 0;
 
-  
     setTimeout(() => {
       this.state.map.overworld.startMap(window.MapsConfig[newMap]);
       this.state.map.overworld.startTriggers();
   
-      canvas.style.opacity = 1;
+      this.canvas.style.opacity = 1;
     }, 700); 
   }
 }

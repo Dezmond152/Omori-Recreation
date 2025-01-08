@@ -26,12 +26,14 @@ class Overworld {
 
       Object.values(this.map.gameObjects).forEach((object) => {
         object.sprite.draw(this.ctx, cameraPerson);
+ 
       });
-
+      
 
       this.map.drawUpperImage(this.ctx, cameraPerson);
-
-  
+      
+      
+      
 
       requestAnimationFrame(() => {
         step();
@@ -41,13 +43,12 @@ class Overworld {
   }
 
   startMap(mapConfig) {
-    
     this.map = new OverworldMaping(mapConfig);
     this.map.overworld = this;     
   }
 
   startTriggers() {
-    this.TriggersInit = new TriggersInit({ map: this.map });
+    this.TriggersInit = new TriggersInit({ map: this.map }, this.ctx, this.canvas);
   }
 
   startDirectionInput() {

@@ -1,6 +1,7 @@
 class OverworldMaping {
   constructor(config) {
     this.gameObjects = config.gameObjects;
+    this.overworld = null;
     this.walls = config.walls || {};
     this.doors = config.doors || {};
     this.triggers = config.triggers || {};
@@ -11,6 +12,8 @@ class OverworldMaping {
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
 
+    this.doorImage = new Image();
+    this.doorImage.src = config.doorsSrc;
   }
 
   drawLowerImage(ctx, cameraPerson) {
@@ -28,6 +31,18 @@ class OverworldMaping {
       utils.withGrid(10) - cameraPerson.y
     );
   }
+
+  drawDoorImage(ctx, cameraPerson){
+    ctx.drawImage(
+      this.doorImage, 
+      0,0,
+      32,32,
+      utils.withGrid(8) - cameraPerson.x, 
+      utils.withGrid(12) - cameraPerson.y, 
+      32,32,
+    );
+  }
+
   
   isSpaceTaken(currentX, currentY, direction) {
     const { x, y } = utils.nextPosition(currentX, currentY, direction);
