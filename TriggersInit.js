@@ -24,7 +24,12 @@ class TriggersInit{
     if (currentTriggers[checkCord]?.includes("onStepTrigger")) {
       const arr = this.state.map.triggers[checkCord];
       const newMap = arr ? arr[1] : undefined;
-      this.updateMap(newMap);
+
+      if(currentTriggers[checkCord]?.includes("noSFX")){
+        this.noSFXUpdateMap(newMap);
+      } else {
+        this.updateMap(newMap);
+      }
     }
   }
 
@@ -53,11 +58,13 @@ class TriggersInit{
         }
 
 
-        this.updateMap(newMap);
+        this.noSFXUpdateMap(newMap);
       }
   
       if (currentTriggers[frontTileKey]?.includes("info")) {
         console.log("Тут будет инфа");
+        
+        
       }
     } 
   }
@@ -82,12 +89,30 @@ class TriggersInit{
   updateMap(newMap){
     this.canvas.style.transition = "opacity 0.6s";
     this.canvas.style.opacity = 0;
+    window.SFX.doorEnter.play();
 
     setTimeout(() => {
       this.state.map.overworld.startMap(window.MapsConfig[newMap]);
       this.state.map.overworld.startTriggers();
-  
+
+      window.SFX.doorExit.play();
       this.canvas.style.opacity = 1;
     }, 700); 
   }
+
+  noSFXUpdateMap(newMap) {
+    this.canvas.style.transition = "opacity 0.6s";
+    this.canvas.style.opacity = 0;
+    
+    setTimeout(() => {
+      this.state.map.overworld.startMap(window.MapsConfig[newMap]);
+      this.state.map.overworld.startTriggers();
+
+      this.canvas.style.opacity = 1;
+    }, 700); 
+  }
+
+
+
+
 }

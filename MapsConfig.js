@@ -37,7 +37,7 @@ window.MapsConfig = {
 
     
     triggers: {
-      [utils.asGridCord(6, 15)]: ['onStepTrigger', 'HouseHall'],
+      [utils.asGridCord(6, 15)]: ['onStepTrigger', 'HouseHall', 'noSFX'],
       [utils.asGridCord(11, 3)]: ['onPressTrigger', 'SunnyRoom', 'changeMap', 'door'],
       [utils.asGridCord(1, 3)]: ['onPressTrigger', 'ParentsRoom', 'changeMap', 'door'],
       [utils.asGridCord(8, 3)]: ['onPressTrigger', 'HouseBath', 'changeMap', 'door'],
@@ -265,7 +265,7 @@ window.MapsConfig = {
     },
 
     triggers: {
-      [utils.asGridCord(4, 13)]: ['onStepTrigger', 'HouseStairs'],
+      [utils.asGridCord(4, 13)]: ['onStepTrigger', 'HouseStairs', 'noSFX'],
     },
 
     walls: {
@@ -318,8 +318,8 @@ window.MapsConfig = {
 
     triggers: {
       [utils.asGridCord(3, 3)]: ['onPressTrigger', 'HouseStairs', 'changeMap'],
-      [utils.asGridCord(0, 5)]: ['onStepTrigger', 'HouseKitchen'],
-      [utils.asGridCord(0, 9)]: ['onStepTrigger', 'HouseDiner'],
+      [utils.asGridCord(0, 5)]: ['onStepTrigger', 'HouseKitchen', 'noSFX'],
+      [utils.asGridCord(0, 9)]: ['onStepTrigger', 'HouseDiner', 'noSFX'],
     },
 
     walls: {
@@ -380,7 +380,7 @@ window.MapsConfig = {
     },
 
     triggers: {
-      [utils.asGridCord(8, 4)]: ['onStepTrigger', 'HouseHall'],
+      [utils.asGridCord(8, 4)]: ['onStepTrigger', 'HouseHall', 'noSFX'],
     },
 
     walls: {
@@ -425,7 +425,7 @@ window.MapsConfig = {
     },
 
     triggers: {
-      [utils.asGridCord(8, 5)]: ['onStepTrigger', 'HouseHall'],
+      [utils.asGridCord(8, 5)]: ['onStepTrigger', 'HouseHall', 'noSFX'],
     },
 
     walls: {
