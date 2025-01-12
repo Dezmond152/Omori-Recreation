@@ -5,8 +5,6 @@ class TriggersInit{
     this.state = state;
     this.doors = window.MapsConfig.HouseStairs.doors;
     this.interactionKey = "KeyZ";
-
-    
   }
 
   getTileInFront(direction, x, y){
@@ -19,6 +17,50 @@ class TriggersInit{
 		}
 	}
 
+  onStepTrigger(x, y){
+    const checkCord = `${x},${y}`;
+    const currentTriggers = this.state.map.triggers;
+
+    if (currentTriggers[checkCord]?.includes("onStepTrigger")) {
+      const arr = this.state.map.triggers[checkCord];
+      const newMap = arr ? arr[1] : undefined;
+      this.updateMap(newMap);
+    }
+  }
+
+  onPressTrigger(x, y, direction){
+    const frontTile = this.getTileInFront(direction, x, y);
+    const frontTileKey = `${frontTile.x},${frontTile.y}`;
+    const currentTriggers = this.state.map.triggers;
+      
+ 
+    if (currentTriggers[frontTileKey]?.includes("onPressTrigger")) {
+      if (currentTriggers[frontTileKey]?.includes("changeMap")) {
+        const arr = currentTriggers[frontTileKey];
+        const newMap = arr ? arr[1] : undefined;
+        const doors = Object.values(this.state.map.gameObjects).filter(obj => obj instanceof Doors);
+
+        for (let door of doors) {
+          if (door.x === frontTile.x && door.y === frontTile.y) {
+            door.open();
+
+            setTimeout(() => {
+              this.updateMap(newMap);  
+            }, 100);  
+
+            return; 
+          }
+        }
+
+
+        this.updateMap(newMap);
+      }
+  
+      if (currentTriggers[frontTileKey]?.includes("info")) {
+        console.log("Тут будет инфа");
+      }
+    } 
+  }
   
   
   checkTrigger(triggerType) {
@@ -27,73 +69,13 @@ class TriggersInit{
     const direction = this.state.map.gameObjects.Sunny.direction;
    
     if(triggerType === 'onStepTrigger') {
-      const checkCord = `${x},${y}`;
-      const currentTriggers = this.state.map.triggers;
-
-      if (currentTriggers[checkCord]?.includes("onStepTrigger")) {
-        const arr = this.state.map.triggers[checkCord];
-        const newMap = arr ? arr[1] : undefined;
-        this.updateMap(newMap);
-        
-      }
+      this.onStepTrigger(x, y)
     }
 
     if(triggerType === 'onPressTrigger') {
-      const frontTile = this.getTileInFront(direction, x, y);
-      const frontTileKey = `${frontTile.x},${frontTile.y}`;
-      const currentTriggers = this.state.map.triggers;
-      
- 
-      if(currentTriggers[frontTileKey]?.includes("onPressTrigger")){
-        
-        if(currentTriggers[frontTileKey]?.includes("changeMap")){
-          const arr = currentTriggers[frontTileKey];
-          const newMap = arr ? arr[1] : undefined;
-    
-          if(currentTriggers[frontTileKey]?.includes('door')){
-            // this.doorAnimation(frontTileKey, this.ctx);
-            
-            this.updateMap(newMap);
-          } else {
-            this.updateMap(newMap);
-          } 
-        }
-
-        if(currentTriggers[frontTileKey]?.includes("info")){
-          console.log("тут будет инфа")
-          // const cameraPerson = this.state.map.gameObjects.Sunny;
-          // this.state.map.drawDoorImage(this.ctx, cameraPerson);
-        }
-      }
+      this.onPressTrigger(x, y, direction)
     }
   }
-
-  // doorAnimation(frontTileKey, ctx) {
-  // console.log("Начало doorAnimation");
-
-  
-  //   const [doorCordX, doorCordY] = frontTileKey.split(",").map(Number);  
-  //   const spriteWidth = 32;
-  //   const spriteHeight = 32;
-  //   const frameCount = 4;
-  //   let currentFrame = 0;
-  
-  //   const animate = () => {
-  
-  //     if (currentFrame >= frameCount) {
-  //       console.log("Анимация завершена.");
-  //       return;
-  //     }
-
-  //     const frameX = currentFrame * spriteWidth;
-      
-  //     currentFrame++;
-  //     setTimeout(animate, 100);
-  //   };
-
-  //   animate(); 
-  // }
-  
 
 
   

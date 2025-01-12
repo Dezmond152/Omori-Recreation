@@ -18,21 +18,17 @@ class Overworld {
         });
       });
 
-
       const cameraPerson = this.map.gameObjects.Sunny;
 
 
       this.map.drawLowerImage(this.ctx, cameraPerson);
-
+ 
+      
       Object.values(this.map.gameObjects).forEach((object) => {
         object.sprite.draw(this.ctx, cameraPerson);
- 
       });
-      
 
       this.map.drawUpperImage(this.ctx, cameraPerson);
-      
-      
       
 
       requestAnimationFrame(() => {

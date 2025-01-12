@@ -11,9 +11,7 @@ class OverworldMaping {
 
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
-
-    this.doorImage = new Image();
-    this.doorImage.src = config.doorsSrc;
+ 
   }
 
   drawLowerImage(ctx, cameraPerson) {
@@ -32,16 +30,7 @@ class OverworldMaping {
     );
   }
 
-  drawDoorImage(ctx, cameraPerson){
-    ctx.drawImage(
-      this.doorImage, 
-      0,0,
-      32,32,
-      utils.withGrid(8) - cameraPerson.x, 
-      utils.withGrid(12) - cameraPerson.y, 
-      32,32,
-    );
-  }
+  
 
   
   isSpaceTaken(currentX, currentY, direction) {

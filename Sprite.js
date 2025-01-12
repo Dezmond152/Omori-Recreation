@@ -7,10 +7,12 @@ class Sprite {
     this.animationFrameLimit = 10;
     this.animationFrameProgress = this.animationFrameLimit;
     this.gameObject = config.gameObject;
+    this.offsetY = config.offsetY || 0;
     
     this.image.onload = () => {
       this.isLoaded = true;
     };
+
 
     this.animations = config.animations || {
       "idle-down" : [[1, 0]],
@@ -52,7 +54,8 @@ class Sprite {
 
   draw(ctx, cameraPerson) {
     const x = this.gameObject.x + utils.withGrid(7) - cameraPerson.x;
-    const y = this.gameObject.y - 6 + utils.withGrid(10) - cameraPerson.y;
+    const y = this.gameObject.y + (this.gameObject.offsetY || 0) + utils.withGrid(10) - cameraPerson.y;
+
 
     const [fremeX, frameY] = this.frame;
 

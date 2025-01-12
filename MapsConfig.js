@@ -4,39 +4,46 @@ window.MapsConfig = {
     upperSrc: "./sprites/places/HouseStairs-layout.png",
     doorsSrc: "./sprites/places/doors.png",
     gameObjects: {
+      Door1: new Doors({
+        x: utils.withGrid(1),
+        y: utils.withGrid(3),
+        src: "./sprites/places/doors.png",
+        changeMap: "ParentsRoom"
+      }),
+
+      Door2: new Doors({
+        x: utils.withGrid(8),
+        y: utils.withGrid(3),
+        src: "./sprites/places/doors.png",
+        changeMap: "ParentsRoom"
+      }),
+
+      Door3: new Doors({
+        x: utils.withGrid(11),
+        y: utils.withGrid(3),
+        src: "./sprites/places/doors.png",
+        changeMap: "ParentsRoom"
+      }),
+
       Sunny: new Person({
         isPlayerControled: true,
         x: utils.withGrid(11),
         y: utils.withGrid(4),
         src: "./sprites/chars/sunny.png",
         direction: "down",
+        offsetY: -6,
       }),
-
-      // Doors: new AnimatedObject({
-      //   x: utils.withGrid(1),
-      //   y: utils.withGrid(4),
-      //   src: "./sprites/places/doors.png",
-      //   animations: [[0, 0], [1, 0], [2, 0], [1, 0]],
-      //   frameDelay: 30,
-      // }),
-      
     },
 
+    
     triggers: {
-      [utils.asGridCord(6, 15)]: ['onStepTrigger', 'HouseHall', [utils.asGridCord(3, 4)]],
+      [utils.asGridCord(6, 15)]: ['onStepTrigger', 'HouseHall'],
       [utils.asGridCord(11, 3)]: ['onPressTrigger', 'SunnyRoom', 'changeMap', 'door'],
       [utils.asGridCord(1, 3)]: ['onPressTrigger', 'ParentsRoom', 'changeMap', 'door'],
       [utils.asGridCord(8, 3)]: ['onPressTrigger', 'HouseBath', 'changeMap', 'door'],
       [utils.asGridCord(11, 11)]: ['onPressTrigger', 'PianoRoom', 'changeMap', 'door'],
       [utils.asGridCord(2, 3)]: ['onPressTrigger', 'info'],
     },
-
-    doors: {
-      [utils.asGridCord(11, 3)]: { type: "door", isOpen: false },
-      [utils.asGridCord(1, 3)]: { type: "door", isOpen: false },
-      [utils.asGridCord(8, 3)]: { type: "door", isOpen: false },
-    },
-
 
     walls: {
       [utils.asGridCord(0, 3)]: true,
@@ -120,9 +127,12 @@ window.MapsConfig = {
         y: utils.withGrid(5),
         src: "./sprites/chars/sunny.png",
         direction: "down",
+        offsetY: -6,
       }),
     },
 
+
+    
     triggers: {
       [utils.asGridCord(1, 7)]: ['onStepTrigger', 'HouseStairs'],
       [utils.asGridCord(3, 2)]: ['onPressTrigger', 'info'],
@@ -164,6 +174,7 @@ window.MapsConfig = {
         y: utils.withGrid(7),
         src: "./sprites/chars/sunny.png",
         direction: "up",
+        offsetY: -6,
       }),
     },
 
@@ -205,6 +216,7 @@ window.MapsConfig = {
         y: utils.withGrid(7),
         src: "./sprites/chars/sunny.png",
         direction: "up",
+        offsetY: -6,
       }),
     },
 
@@ -248,6 +260,7 @@ window.MapsConfig = {
         y: utils.withGrid(13),
         src: "./sprites/chars/sunny.png",
         direction: "up",
+        offsetY: -6,
       }),
     },
 
@@ -299,6 +312,7 @@ window.MapsConfig = {
         y: utils.withGrid(4),
         src: "./sprites/chars/sunny.png",
         direction: "down",
+        offsetY: -6,
       }),
     },
 
@@ -361,6 +375,7 @@ window.MapsConfig = {
         y: utils.withGrid(4),
         src: "./sprites/chars/sunny.png",
         direction: "down",
+        offsetY: -6,
       }),
     },
 
@@ -405,6 +420,7 @@ window.MapsConfig = {
         y: utils.withGrid(5),
         src: "./sprites/chars/sunny.png",
         direction: "down",
+        offsetY: -6,
       }),
     },
 
