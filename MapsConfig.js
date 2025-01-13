@@ -512,8 +512,8 @@ window.MapsConfig = {
       [utils.asGridCord(0, 8)]: ['onPressTrigger', 'info', window.textConfig.boxes],
       [utils.asGridCord(6, 7)]: ['onPressTrigger', 'info', window.textConfig.boxes],
       [utils.asGridCord(5, 8)]: ['onPressTrigger', 'info', window.textConfig.boxes],
-      [utils.asGridCord(5, 3)]: ['onPressTrigger', 'info', window.textConfig.drawer],
-      [utils.asGridCord(6, 3)]: ['onPressTrigger', 'info', window.textConfig.momshelf],
+      [utils.asGridCord(5, 2)]: ['onPressTrigger', 'info', window.textConfig.drawer],
+      [utils.asGridCord(6, 2)]: ['onPressTrigger', 'info', window.textConfig.momshelf],
     },
 
     walls: {
