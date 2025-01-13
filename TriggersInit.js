@@ -62,7 +62,8 @@ class TriggersInit{
       }
   
       if (currentTriggers[frontTileKey]?.includes("info")) {
-        console.log("Тут будет инфа");
+        const triggerText = currentTriggers[frontTileKey][2] 
+        console.log(triggerText);
       }
     } 
   }

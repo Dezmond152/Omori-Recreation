@@ -135,7 +135,10 @@ window.MapsConfig = {
     
     triggers: {
       [utils.asGridCord(1, 7)]: ['onStepTrigger', 'HouseStairs'],
-      [utils.asGridCord(3, 2)]: ['onPressTrigger', 'info'],
+      [utils.asGridCord(0, 2)]: ['onPressTrigger', 'info', window.textConfig.obj1],
+      [utils.asGridCord(1, 2)]: ['onPressTrigger', 'info', window.textConfig.obj2],
+      [utils.asGridCord(2, 2)]: ['onPressTrigger', 'info', window.textConfig.obj3],
+      
     },
 
     walls: {
