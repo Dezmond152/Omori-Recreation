@@ -18,6 +18,8 @@ class DirectionInput {
 		this.handleKeyDown = null;
     this.handleKeyUp = null;
     this.interactKey = null;
+
+		this.isInteracted = false;
 	}
 
 	get direction() {
@@ -49,10 +51,17 @@ class DirectionInput {
     };
 
     this.interactKey = (e) => {
-      if (e.code === this.interactionKey) {
+      if (e.code === this.interactionKey && !this.isInteracted) {
         state.map.overworld.TriggersInit.checkTrigger("onPressTrigger");
+				this.isInteracted = true;
       }
     };
+
+		document.addEventListener("keyup", (e) => {
+      if (e.code === this.interactionKey) {
+        this.isInteracted = false;
+      }
+    });
 
     document.addEventListener("keydown", this.interactKey);
     document.addEventListener("keydown", this.handleKeyDown);

@@ -94,7 +94,7 @@ class TriggersInit{
             setTimeout(() => {
               this.updateMap(newMap);  
             }, 100);  
-
+            console.log('when  door',this.state);
             return; 
           }
         }
@@ -103,6 +103,7 @@ class TriggersInit{
       
       if (currentTriggers[frontTileKey]?.includes("info")) {
         const triggerText = currentTriggers[frontTileKey][2] 
+        console.log('when  info',this.state);
         this.createOrCloseDescription(triggerText);
       }
     } 
