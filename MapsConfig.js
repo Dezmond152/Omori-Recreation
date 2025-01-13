@@ -42,9 +42,25 @@ window.MapsConfig = {
       [utils.asGridCord(1, 3)]: ['onPressTrigger', 'ParentsRoom', 'changeMap', 'door'],
       [utils.asGridCord(8, 3)]: ['onPressTrigger', 'HouseBath', 'changeMap', 'door'],
       [utils.asGridCord(11, 11)]: ['onPressTrigger', 'PianoRoom', 'changeMap', 'door'],
-      [utils.asGridCord(2, 3)]: ['onPressTrigger', 'info'],
+      [utils.asGridCord(0, 3)]: ['onPressTrigger', 'info', window.textConfig.watches],
+      [utils.asGridCord(2, 3)]: ['onPressTrigger', 'info', window.textConfig.fakeflower], 
+      [utils.asGridCord(6, 3)]: ['onPressTrigger', 'info', window.textConfig.windows],
+      [utils.asGridCord(10, 3)]: ['onPressTrigger', 'info', window.textConfig.fakeflower],
+      [utils.asGridCord(12, 4)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(12, 5)]: ['onPressTrigger', 'info', window.textConfig.photos],
+      [utils.asGridCord(0, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(1, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(8, 11)]: ['onPressTrigger', 'info', window.textConfig.eshelf],
+      [utils.asGridCord(9, 11)]: ['onPressTrigger', 'info', window.textConfig.eshelf],
+      [utils.asGridCord(12, 12)]: ['onPressTrigger', 'info', window.textConfig.flovers],
+      [utils.asGridCord(12, 14)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(11, 14)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(2, 14)]: ['onPressTrigger', 'info', window.textConfig.photos], 
+      [utils.asGridCord(1, 14)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(0, 14)]: ['onPressTrigger', 'info', window.textConfig.boxes], 
+      [utils.asGridCord(0, 12)]: ['onPressTrigger', 'info', window.textConfig.flovers],
     },
-
+ 
     walls: {
       [utils.asGridCord(0, 3)]: true,
       [utils.asGridCord(1, 3)]: true, 
@@ -113,7 +129,7 @@ window.MapsConfig = {
       [utils.asGridCord(-1, 5)]: true,
       [utils.asGridCord(-1, 4)]: true,
     },
-  },
+  }, //
 
   SunnyRoom: {
     lowerSrc: "./sprites/places/SunnyRoom.png",
@@ -135,9 +151,19 @@ window.MapsConfig = {
     
     triggers: {
       [utils.asGridCord(1, 7)]: ['onStepTrigger', 'HouseStairs'],
-      [utils.asGridCord(0, 2)]: ['onPressTrigger', 'info', window.textConfig.obj1],
-      [utils.asGridCord(1, 2)]: ['onPressTrigger', 'info', window.textConfig.obj2],
-      [utils.asGridCord(2, 2)]: ['onPressTrigger', 'info', window.textConfig.obj3],
+      [utils.asGridCord(0, 2)]: ['onPressTrigger', 'info', window.textConfig.shelf],
+      [utils.asGridCord(1, 2)]: ['onPressTrigger', 'info', window.textConfig.pc],
+      [utils.asGridCord(2, 2)]: ['onPressTrigger', 'info', window.textConfig.phone],
+      [utils.asGridCord(3, 2)]: ['onPressTrigger', 'info', window.textConfig.stickers.sticker1],
+      [utils.asGridCord(4, 2)]: ['onPressTrigger', 'info', window.textConfig.lamp],
+      [utils.asGridCord(5, 3)]: ['onPressTrigger', 'info', window.textConfig.bed],
+      [utils.asGridCord(6, 2)]: ['onPressTrigger', 'info', window.textConfig.wardrobe],
+      [utils.asGridCord(6, 6)]: ['onPressTrigger', 'info', window.textConfig.flovers],
+      [utils.asGridCord(4, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(3, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(2, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(0, 6)]: ['onPressTrigger', 'info', window.textConfig.table],
+      [utils.asGridCord(0, 4)]: ['onPressTrigger', 'info', window.textConfig.boxes],
       
     },
 
@@ -165,7 +191,7 @@ window.MapsConfig = {
       [utils.asGridCord(0, 4)]: true,
       [utils.asGridCord(-1, 3)]: true,
     },
-  },
+  }, //
 
   HouseBath: {
     lowerSrc: "./sprites/places/HouseBath.png",
@@ -183,6 +209,13 @@ window.MapsConfig = {
 
     triggers: {
       [utils.asGridCord(4, 7)]: ['onStepTrigger', 'HouseStairs'],
+      [utils.asGridCord(3, 2)]: ['onPressTrigger', 'info', "Mirror here"],
+      [utils.asGridCord(0, 2)]: ['onPressTrigger', 'info', window.textConfig.toilet],
+      [utils.asGridCord(1, 2)]: ['onPressTrigger', 'info', window.textConfig.toiletshelf],
+      [utils.asGridCord(2, 2)]: ['onPressTrigger', 'info', window.textConfig.stickers.sticker2],
+      [utils.asGridCord(4, 2)]: ['onPressTrigger', 'info', window.textConfig.bathtub],
+      [utils.asGridCord(5, 2)]: ['onPressTrigger', 'info', window.textConfig.bathtub],
+      [utils.asGridCord(5, 6)]: ['onPressTrigger', 'info', window.textConfig.flovers],
     },
 
     walls: {
@@ -207,7 +240,7 @@ window.MapsConfig = {
       [utils.asGridCord(-1, 4)]: true,
       [utils.asGridCord(-1, 3)]: true,
     },
-  },
+  }, //
 
   ParentsRoom: {
     lowerSrc: "./sprites/places/ParentsRoom.png",
@@ -225,6 +258,18 @@ window.MapsConfig = {
 
     triggers: {
       [utils.asGridCord(5, 7)]: ['onStepTrigger', 'HouseStairs'],
+      [utils.asGridCord(0, 2)]: ['onPressTrigger', 'info', window.textConfig.lamp],
+      [utils.asGridCord(1, 3)]: ['onPressTrigger', 'info', window.textConfig.mombed],
+      [utils.asGridCord(1, 4)]: ['onPressTrigger', 'info', window.textConfig.mombed],
+      [utils.asGridCord(2, 4)]: ['onPressTrigger', 'info', window.textConfig.mombed],
+      [utils.asGridCord(2, 3)]: ['onPressTrigger', 'info', window.textConfig.mombed],
+      [utils.asGridCord(3, 2)]: ['onPressTrigger', 'info', window.textConfig.photos],
+      [utils.asGridCord(4, 3)]: ['onPressTrigger', 'info', window.textConfig.basket],
+      [utils.asGridCord(5, 2)]: ['onPressTrigger', 'info', window.textConfig.eshelf],
+      [utils.asGridCord(6, 3)]: ['onPressTrigger', 'info', window.textConfig.flovers],
+      [utils.asGridCord(6, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(1, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(0, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
     },
 
     walls: {
@@ -251,7 +296,7 @@ window.MapsConfig = {
       [utils.asGridCord(-1, 4)]: true,
       [utils.asGridCord(-1, 3)]: true,
     },
-  },
+  }, //
 
   PianoRoom: {
     lowerSrc: "./sprites/places/PianoRoom.png",
@@ -269,6 +314,17 @@ window.MapsConfig = {
 
     triggers: {
       [utils.asGridCord(4, 13)]: ['onStepTrigger', 'HouseStairs', 'noSFX'],
+      [utils.asGridCord(0, 5)]: ['onPressTrigger', 'info', window.textConfig.eshelf],
+      [utils.asGridCord(1, 5)]: ['onPressTrigger', 'info', window.textConfig.watches],
+      [utils.asGridCord(6, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(7, 7)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(7, 12)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(0, 12)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(1, 12)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(3, 8)]: ['onPressTrigger', 'info', window.textConfig.piano],
+      [utils.asGridCord(4, 8)]: ['onPressTrigger', 'info', window.textConfig.piano],
+      [utils.asGridCord(3, 9)]: ['onPressTrigger', 'info', window.textConfig.piano],
+      [utils.asGridCord(4, 9)]: ['onPressTrigger', 'info', window.textConfig.piano],
     },
 
     walls: {
@@ -303,7 +359,7 @@ window.MapsConfig = {
       [utils.asGridCord(3, 9)]: true,
       [utils.asGridCord(4, 9)]: true,
     },
-  },
+  }, //
 
   HouseHall: {
     lowerSrc: "./sprites/places/HouseHall.png",
@@ -323,8 +379,23 @@ window.MapsConfig = {
       [utils.asGridCord(3, 3)]: ['onPressTrigger', 'HouseStairs', 'changeMap'],
       [utils.asGridCord(0, 5)]: ['onStepTrigger', 'HouseKitchen', 'noSFX'],
       [utils.asGridCord(0, 9)]: ['onStepTrigger', 'HouseDiner', 'noSFX'],
-    },
+      [utils.asGridCord(4, 3)]: ['onPressTrigger', 'info', window.textConfig.stickers.sticker3],
+      [utils.asGridCord(5, 3)]: ['onPressTrigger', 'info', window.textConfig.fireplace],
+      [utils.asGridCord(6, 3)]: ['onPressTrigger', 'info', window.textConfig.fireplace],
+      [utils.asGridCord(7, 3)]: ['onPressTrigger', 'info', window.textConfig.windows],
+      [utils.asGridCord(12, 4)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(12, 5)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(12, 10)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(11, 10)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(10, 10)]: ['onPressTrigger', 'info', window.textConfig.photos],
+      [utils.asGridCord(9, 10)]: ['onPressTrigger', 'info', window.textConfig.rack],
+      [utils.asGridCord(3, 10)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(2, 10)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(2, 7)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(2, 8)]: ['onPressTrigger', 'info', window.textConfig.boxes],
 
+    },
+ 
     walls: {
       [utils.asGridCord(2, 3)]: true,
       [utils.asGridCord(3, 3)]: true,
@@ -366,7 +437,7 @@ window.MapsConfig = {
       [utils.asGridCord(0, 4)]: true,
       [utils.asGridCord(1, 4)]: true,
     },
-  },
+  }, //
 
   HouseKitchen: {
     lowerSrc: "./sprites/places/HouseKitchen.png",
@@ -384,6 +455,13 @@ window.MapsConfig = {
 
     triggers: {
       [utils.asGridCord(8, 4)]: ['onStepTrigger', 'HouseHall', 'noSFX'],
+      [utils.asGridCord(1, 2)]: ['onPressTrigger', 'info', window.textConfig.microwave],
+      [utils.asGridCord(2, 2)]: ['onPressTrigger', 'info', window.textConfig.sink],
+      [utils.asGridCord(3, 2)]: ['onPressTrigger', 'info', window.textConfig.pans],
+      [utils.asGridCord(6, 2)]: ['onPressTrigger', 'info', window.textConfig.fridge],
+      [utils.asGridCord(0, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(5, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(6, 6)]: ['onPressTrigger', 'info', window.textConfig.boxes],
     },
 
     walls: {
@@ -411,7 +489,7 @@ window.MapsConfig = {
       [utils.asGridCord(2, 4)]: true,
       [utils.asGridCord(0, 3)]: true,
     },
-  },
+  }, //
 
   HouseDiner: {
     lowerSrc: "./sprites/places/HouseDiner.png",
@@ -429,6 +507,13 @@ window.MapsConfig = {
 
     triggers: {
       [utils.asGridCord(8, 5)]: ['onStepTrigger', 'HouseHall', 'noSFX'],
+      [utils.asGridCord(0, 3)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(0, 7)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(0, 8)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(6, 7)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(5, 8)]: ['onPressTrigger', 'info', window.textConfig.boxes],
+      [utils.asGridCord(5, 3)]: ['onPressTrigger', 'info', window.textConfig.drawer],
+      [utils.asGridCord(6, 3)]: ['onPressTrigger', 'info', window.textConfig.momshelf],
     },
 
     walls: {
@@ -457,6 +542,6 @@ window.MapsConfig = {
       [utils.asGridCord(-1, 4)]: true,
       [utils.asGridCord(0, 3)]: true,
     },
-  },
+  }, //
 
 };
