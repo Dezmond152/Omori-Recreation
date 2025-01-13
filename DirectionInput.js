@@ -1,6 +1,6 @@
 class DirectionInput {
 	constructor() {
-		this.heldDIrections = [];
+		this.heldDirections = [];
 
 		this.moveKeys = {
 			"ArrowUp"    : "up",
@@ -14,36 +14,48 @@ class DirectionInput {
 		};
 
 		this.interactionKey = "KeyZ";
+
+		this.handleKeyDown = null;
+    this.handleKeyUp = null;
+    this.interactKey = null;
 	}
 
 	get direction() {
-		return this.heldDIrections[0];
+		return this.heldDirections[0];
+	}
+
+
+	deleteInputs(state){
+		state.map.overworld.directionInput.heldDirections = [];
+		document.removeEventListener("keydown", this.handleKeyDown);
+    document.removeEventListener("keyup", this.handleKeyUp);
+    document.removeEventListener("keydown", this.interactKey);
 	}
 
 	init(state) {
-		const handleKeyDown = (e) => {
+		this.handleKeyDown = (e) => {
       const dir = this.moveKeys[e.code];
-      if (dir && this.heldDIrections.indexOf(dir) === -1) {
-        this.heldDIrections.unshift(dir);
+      if (dir && this.heldDirections.indexOf(dir) === -1) {
+        this.heldDirections.unshift(dir);
       }
     };
 
-    const handleKeyUp = (e) => {
+    this.handleKeyUp = (e) => {
       const dir = this.moveKeys[e.code];
-      const index = this.heldDIrections.indexOf(dir);
+      const index = this.heldDirections.indexOf(dir);
       if (index > -1) {
-        this.heldDIrections.splice(index, 1);
+        this.heldDirections.splice(index, 1);
       }
     };
 
-		const interactKey = (e) => {
+    this.interactKey = (e) => {
       if (e.code === this.interactionKey) {
-        state.map.overworld.TriggersInit.checkTrigger("onPressTrigger")
+        state.map.overworld.TriggersInit.checkTrigger("onPressTrigger");
       }
-    }
-  
-    document.addEventListener("keydown", interactKey);
-		document.addEventListener("keydown", handleKeyDown);
-		document.addEventListener("keyup", handleKeyUp);
+    };
+
+    document.addEventListener("keydown", this.interactKey);
+    document.addEventListener("keydown", this.handleKeyDown);
+    document.addEventListener("keyup", this.handleKeyUp);
 	}
 }

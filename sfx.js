@@ -14,5 +14,5 @@ window.SFX.House1.volume = 0.05;
 
 
 document.addEventListener('click', () => {
-  window.SFX.House1.play();
+  window.SFX.House.play();
 });

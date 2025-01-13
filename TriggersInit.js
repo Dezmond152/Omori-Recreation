@@ -63,8 +63,6 @@ class TriggersInit{
   
       if (currentTriggers[frontTileKey]?.includes("info")) {
         console.log("Тут будет инфа");
-        
-        
       }
     } 
   }
@@ -87,6 +85,7 @@ class TriggersInit{
 
   
   updateMap(newMap){
+    this.state.map.overworld.directionInput.deleteInputs(this.state);
     this.canvas.style.transition = "opacity 0.6s";
     this.canvas.style.opacity = 0;
     window.SFX.doorEnter.play();
@@ -97,10 +96,12 @@ class TriggersInit{
 
       window.SFX.doorExit.play();
       this.canvas.style.opacity = 1;
+      this.state.map.overworld.directionInput.init(this.state);
     }, 700); 
   }
 
   noSFXUpdateMap(newMap) {
+    this.state.map.overworld.directionInput.deleteInputs(this.state);
     this.canvas.style.transition = "opacity 0.6s";
     this.canvas.style.opacity = 0;
     
@@ -109,8 +110,10 @@ class TriggersInit{
       this.state.map.overworld.startTriggers();
 
       this.canvas.style.opacity = 1;
+      this.state.map.overworld.directionInput.init(this.state);
     }, 700); 
   }
+
 
 
 
