@@ -1,13 +1,12 @@
 @font-face{
   font-family: GameFont;
-  src: url("./fonts/OMORI_GAME.ttf");
+  src: url("./fonts/OMORI_GAME2.ttf");
 }
 
 body{
   background-color: black;
   padding: 0;
   margin: 0;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,10 +17,107 @@ body{
   position: relative;
   width: 480px;
   height: 640px;
-  outline: 1px solid white;
+  /* outline: 1px solid white; */
   transform: scale(1.4);
 }
 
 .game-container canvas{
   image-rendering: pixelated;
+}
+
+#discript-wrapper{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 3%;
+  width: 100%;
+  height: 28%;
+}
+
+.discription{
+  background-color: #000000;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 125%;
+  height: 0%;
+  outline: solid #FFFFFF;
+  border: solid black 3px;
+
+  animation: open 0.1s linear forwards;
+}
+
+.discription.closing {
+  animation: close 0.1s linear forwards;
+}
+
+@keyframes open {
+  0%{
+    height: 0%;
+  }
+  100%{
+    height: 65%;
+  }
+}
+
+@keyframes close {
+  0%{
+    height: 65%;
+  }
+  100%{
+    height: 0%;
+  }
+}
+
+#text-div{
+  font-family: GameFont, sans-serif;;
+  font-size: 33px;
+  padding-left: 15px;
+  color: #FFFFFF;
+  width: auto;
+  height: 77%;
+}
+
+#text-div span{
+  opacity: 0;
+}
+
+#text-div span.revealed{
+  opacity: 1;
+}
+
+
+
+
+
+
+
+#img-div{
+  display: flex;
+  justify-content: flex-end;
+ 
+  width: 100%;
+  height: 23%;
+}
+
+#pointer{
+  margin-right: 30px;
+  width: 40px;
+  height: 20px;
+
+  
+  animation: movePointer 1s ease-in-out infinite;
+}
+
+@keyframes movePointer {
+  0% {
+    transform: translateX(0); 
+  }
+  50% {
+    transform: translateX(10px); 
+  }
+  100% {
+    transform: translateX(0); 
+  }
 }

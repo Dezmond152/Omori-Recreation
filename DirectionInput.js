@@ -29,10 +29,10 @@ class DirectionInput {
 		state.map.overworld.directionInput.heldDirections = [];
 		document.removeEventListener("keydown", this.handleKeyDown);
     document.removeEventListener("keyup", this.handleKeyUp);
-    document.removeEventListener("keydown", this.interactKey);
 	}
 
 	init(state) {
+
 		this.handleKeyDown = (e) => {
       const dir = this.moveKeys[e.code];
       if (dir && this.heldDirections.indexOf(dir) === -1) {

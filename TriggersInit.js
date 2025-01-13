@@ -5,7 +5,48 @@ class TriggersInit{
     this.state = state;
     this.doors = window.MapsConfig.HouseStairs.doors;
     this.interactionKey = "KeyZ";
+    this.descriptionOn = false;
   }
+
+  createOrCloseDescription(triggerText) {
+    if (this.isProcessing) return;
+    this.isProcessing = true;
+    const container = document.getElementById('discript-wrapper');
+    const description = document.querySelector('.discription');
+    
+    if (this.descriptionOn) {
+        const textDiv = document.getElementById('text-div');
+        const imgDiv = document.getElementById('img-div');
+        if (textDiv) textDiv.innerHTML = '';
+        if (imgDiv) imgDiv.innerHTML = '';
+        description.classList.add('closing');
+        description.addEventListener('animationend', () => {
+            container.innerHTML = '';
+            this.descriptionOn = false;
+            this.state.map.overworld.directionInput.init(this.state);
+        }, { once: true });
+    } else {
+        const pattern = `
+        <div class="discription">
+          <div id="text-div">${triggerText}</div>
+          <div id="img-div">
+            <img id="pointer" src="./sprites/others/pointer.png"></img>
+          </div>
+        </div>
+        `;
+
+        container.innerHTML = pattern;
+        this.descriptionOn = true;
+        window.SFX.text.play();
+        this.state.map.overworld.directionInput.deleteInputs(this.state);
+    }
+
+    setTimeout(() => {
+        this.isProcessing = false;
+    }, 100);
+  }
+
+
 
   getTileInFront(direction, x, y){
 		switch (direction) {
@@ -38,6 +79,7 @@ class TriggersInit{
     const frontTileKey = `${frontTile.x},${frontTile.y}`;
     const currentTriggers = this.state.map.triggers;
       
+    
  
     if (currentTriggers[frontTileKey]?.includes("onPressTrigger")) {
       if (currentTriggers[frontTileKey]?.includes("changeMap")) {
@@ -56,16 +98,15 @@ class TriggersInit{
             return; 
           }
         }
-
-
         this.noSFXUpdateMap(newMap);
       }
-  
+      
       if (currentTriggers[frontTileKey]?.includes("info")) {
         const triggerText = currentTriggers[frontTileKey][2] 
-        console.log(triggerText);
+        this.createOrCloseDescription(triggerText);
       }
     } 
+    
   }
   
   
@@ -90,33 +131,29 @@ class TriggersInit{
     this.canvas.style.transition = "opacity 0.6s";
     this.canvas.style.opacity = 0;
     window.SFX.doorEnter.play();
-
+  
     setTimeout(() => {
       this.state.map.overworld.startMap(window.MapsConfig[newMap]);
       this.state.map.overworld.startTriggers();
-
+      this.state.map.overworld.directionInput.init(this.state);
+  
       window.SFX.doorExit.play();
       this.canvas.style.opacity = 1;
-      this.state.map.overworld.directionInput.init(this.state);
     }, 700); 
   }
-
+  
   noSFXUpdateMap(newMap) {
     this.state.map.overworld.directionInput.deleteInputs(this.state);
     this.canvas.style.transition = "opacity 0.6s";
     this.canvas.style.opacity = 0;
-    
+  
     setTimeout(() => {
       this.state.map.overworld.startMap(window.MapsConfig[newMap]);
       this.state.map.overworld.startTriggers();
-
-      this.canvas.style.opacity = 1;
       this.state.map.overworld.directionInput.init(this.state);
+  
+      this.canvas.style.opacity = 1;
     }, 700); 
   }
-
-
-
-
-
+  
 }
