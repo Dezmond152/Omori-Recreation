@@ -4,13 +4,139 @@
 }
 
 body{
-  background-color: black;
   padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: black;
   height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("./sprites/others/!polaroidBG_FA_day.rpgmvp.png");
+
+  background-repeat: repeat;
+  background-position: 100% 0; 
+  animation: moveBackground 20s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 100% 0; 
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+#disclamer{
+  background-color: black;
+  position: absolute;
+  display: flex;
+  justify-self: center;
+  align-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+#disc-text{
+  display: flex;
+  justify-self: center;
+  align-content: center;
+  width: 100%;
+  height: 80%;
+}
+
+#d-text{
+  font-family: GameFont, sans-serif;
+  font-size: 60px;
+  color: rgb(255, 255, 255);
+  margin: auto;
+  width: 70%;
+  height: 60%;
+  text-align: center;
+  animation: 3s fading forwards;
+}
+
+@media  (max-width: 1354px) {
+  #d-text{
+    font-size: 40px;
+  }
+}
+
+@media  (max-width: 1000px) {
+  #d-text{
+    font-size: 20px;
+  }
+}
+
+#caution{
+  background-color: rgb(190, 187, 187);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+#game-link a{
+  text-decoration: none;
+  font-weight: bold;
+  color: red;
+}
+
+#disc-button{
+  display: flex;
+  justify-self: center;
+  align-content: center;
+  width: 100%;
+  height: 20%;
+}
+
+#d-button{
+  font-family: GameFont, sans-serif;
+  font-size: 33px;
+  text-align: center;
+  color: rgb(226, 226, 226);
+  background-color: #000000;
+  outline: 3px solid white;
+  margin: auto;
+  width: 4.5em;
+  height: 1.3em;
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: transform 0.3s;
+  animation: 3s fading forwards;
+}
+
+#d-button:hover{
+  transform: scale(1.05);
+}
+
+
+@keyframes fading {
+  0%    {opacity: 0;}
+  100%  {opacity: 0.9;}
+}
+
+@keyframes fading-rev {
+  0%    {opacity: 0.9;}
+  100%  {opacity: 0;}
+}
+
+@keyframes fading-bc-rev {
+  0%    {opacity: 0.9;}
+  100%  {opacity: 0;}
+}
+
+#bg-wrap{
+  position: absolute;
+ 
+  overflow: hidden;
+}
+
+#bg-wrap img{
+ 
+  overflow: hidden;
 }
 
 .game-container{
@@ -33,6 +159,7 @@ body{
   bottom: 3%;
   width: 100%;
   height: 28%;
+  z-index: 2;
 }
 
 .discription {
@@ -120,4 +247,35 @@ body{
   100% {
     transform: translateX(0); 
   }
+}
+
+#menu{
+  width: 100%;
+  height: 100%;
+  background-color: #522e2e62;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#title-sprite{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 30%;
+}
+
+#title-anim{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 90%;
+  height: 30%;
+}
+
+#sunny-sprite{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
 }

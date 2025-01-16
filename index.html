@@ -4,16 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Omori-JS</title>
-    <link rel="stylesheet" href="./style.css"/>
-    <link rel="icon" href="./sprites/others/icon.webp">
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./sprites/others/icon.webp" />
   </head>
 
   <body>
+    <div id="disclamer">
+      <div id="disc-text">
+        <div id="d-text">
+          <span id="caution">CAUTION:</span> <br />
+          This product contains spoilers! <br />
+          If you have not played the original game
+          <span id="game-link"
+            ><a
+              href="https://store.steampowered.com/app/1150690/OMORI/"
+              target="_blank"
+              >OMORI</a
+            ></span
+          >, <br />
+          I strongly recommend completing it before proceeding. <br />
+          By clicking "I accept," you agree to potential spoilers.<br />
+          The product is NOT commercial. This web-app exists for educational purposes.
+        </div>
+      </div>
+      <div id="disc-button">
+        <div id="d-button"><b>I Accept</b></div>
+      </div>
+    </div>
+
+    <div id="menu">
+      <div id="title-sprite">
+        <div id="title-anim">
+          <img src="./sprites/others/Title-menu/Title-menu-anim-1.png" alt="#">
+        </div>
+        <img src="./sprites/others/Title-menu/Title-menu.png" alt="#">
+      </div>
+      <div id="sunny-sprite"><img src="./sprites/others/Sunny-menu/Sunny-menu-1.png" alt="#"></div>
+    </div>
+
+
     <div class="game-container">
       <div id="discript-wrapper">
         <!-- DISCRIPTION APEARS HERE -->
       </div>
-      
+
       <canvas class="game-canvas" width="480" height="640"></canvas>
     </div>
 
