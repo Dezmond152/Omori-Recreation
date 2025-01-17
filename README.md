@@ -23,6 +23,7 @@
 This web project is built with **vanilla JavaScript** (no external libraries)
 
 ### Main features:
+- **Canvas based**
 - **Game Loop**
 - **Sprite Rendering**
 - **Animation Rendering**
