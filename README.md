@@ -33,7 +33,7 @@ Most of the project is implemented using **JavaScript Classes** to keep the code
 
 ---
 
-<span><a href="https://dezmond152.github.io/Omori-Recreation/">GAME LINK</span> <br>
+<span> <b><a href="https://dezmond152.github.io/Omori-Recreation/">GAME LINK</b></span> <br>
 Check out the recreation and enjoy the experience from OMORI directly in your browser! 🌟
 
 
