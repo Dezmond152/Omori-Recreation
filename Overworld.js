@@ -7,35 +7,48 @@ class Overworld {
     this.map = null;
   }
 
+  gameLoopStepWork() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    Object.values(this.map.gameObjects).forEach((object) => {
+      object.update({
+        arrow: this.directionInput.direction,
+        map: this.map,
+      });
+    });
+
+    const cameraPerson = this.map.gameObjects.Sunny;
+    
+    this.map.drawLowerImage(this.ctx, cameraPerson);
+
+    Object.values(this.map.gameObjects).forEach((object) => {
+      object.sprite.draw(this.ctx, cameraPerson);
+    });
+
+    this.map.drawUpperImage(this.ctx, cameraPerson);
+  }
+
   startGameLoop() {
-    const step = () => {
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-      Object.values(this.map.gameObjects).forEach((object) => {
-        object.update({
-          arrow: this.directionInput.direction,
-          map: this.map,
-        });
-      });
+    let previousMs;
+    const step = 1/60;
 
-      const cameraPerson = this.map.gameObjects.Sunny;
-
-
-      this.map.drawLowerImage(this.ctx, cameraPerson);
- 
+    const stepFun = (timestampMs) => {
       
-      Object.values(this.map.gameObjects).forEach((object) => {
-        object.sprite.draw(this.ctx, cameraPerson);
-      });
+      if(previousMs === undefined){
+        previousMs = timestampMs;
+      }
 
-      this.map.drawUpperImage(this.ctx, cameraPerson);
-      
+      let delta = (timestampMs - previousMs) / 1000;
+      while (delta >= step) {
+        this.gameLoopStepWork();
+        delta -= step;
+      }
+      previousMs = timestampMs - delta * 1000;
 
-      requestAnimationFrame(() => {
-        step();
-      });
+      requestAnimationFrame(stepFun);
     };
-    step();
+    requestAnimationFrame(stepFun);
   }
 
   startMap(mapConfig) {

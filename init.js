@@ -15,6 +15,14 @@ disclamerButton.addEventListener("click", () => {
 
 const menu = document.getElementById('menu')
 const playButton = document.getElementById('m-button');
+const gameCan = `
+<div id="game-containe-wrap">
+  <div class="game-container">
+    <div id="discript-wrapper"></div>
+    <canvas class="game-canvas" width="480" height="640"></canvas>
+  </div>
+</div>
+`;
 let pressed = false;
 
 
@@ -25,6 +33,7 @@ playButton.addEventListener("click", () => {
 		document.body.insertAdjacentHTML('afterbegin', `<div id="black-screen"></div>`);
 
 		setTimeout(() => {
+			document.body.insertAdjacentHTML('afterbegin', gameCan);
 			document.body.style.backgroundImage = 'none';
 			document.body.style.overflow = "auto";
 	
@@ -122,11 +131,15 @@ function titleAnimation() {
 sunnyAnimation()
 titleAnimation()
 
+
+
 function initGame() {
 
 	const overworld = new Overworld({
 		element: document.querySelector('.game-container')
 	});
+
+	
 	overworld.init();
 	window.SFX.House.play();
 
