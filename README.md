@@ -8,7 +8,7 @@
 
 <h1 align="center">
   <b>
-    <a href="https://dezmond152.github.io/Omori-Recreation/">GAME LINK</a> 
+    Movemant: ARROW KEYS | Interaction: Z
   </b>
 </h1>
 
