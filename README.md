@@ -8,7 +8,7 @@
 
 <h1 align="center">
   <b>
-    Movemant: Arrow KEYS | Interaction: Z
+    Move: Arrow KEYS | Interact: Z
   </b>
 </h1>
 
