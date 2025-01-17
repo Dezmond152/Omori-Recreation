@@ -4,13 +4,9 @@ class DirectionInput {
 
 		this.moveKeys = {
 			"ArrowUp"    : "up",
-			"KeyW"       : "up",
 			"ArrowDown"  : "down",
-			"KeyS"       : "down",
 			"ArrowLeft"  : "left",
-			"KeyA"       : "left",
 			"ArrowRight" : "right",
-			"KeyD"       : "right",
 		};
 
 		this.interactionKey = "KeyZ";

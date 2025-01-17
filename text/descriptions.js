@@ -30,21 +30,16 @@ window.textConfig = {
   phone: "You have no new massages.",
   stickers: {
     sticker1: [
-      "Hi, SUNNY! This is a note from MOMMY",
-      "<br> I left some food in the fridge for you downstairs. <br> It's STEAK... your favorite!",
-      " Love you, XOXO."
+      "Hi, SUNNY! This is a note from MOMMY <br> I left some food in the fridge for you downstairs. <br> It's STEAK... your favorite! Love you, XOXO."
     ],
 
     sticker2: [
-      "Hi, SUNNY! This is a note from MOMMY",
-      "<br> Remember to brush your teeth every day!",
-      "<br> Love you, XOXO."
+      "Hi, SUNNY! This is a note from MOMMY <br> Remember to brush your teeth every day! <br> Love you, XOXO."
+      
     ],
 
     sticker3: [
-      "Hi, SUNNY! This is a note from MOMMY",
-      "<br> Remember: look both ways before crossing the street!",
-      "<br> Love you, XOXO."
+      "Hi, SUNNY! This is a note from MOMMY <br> Remember: look both ways before crossing the street! <br> Love you, XOXO."
     ],
   },
 }
