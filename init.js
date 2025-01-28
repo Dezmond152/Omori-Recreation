@@ -35,7 +35,7 @@ playButton.addEventListener("click", () => {
 		setTimeout(() => {
 			document.body.insertAdjacentHTML('afterbegin', gameCan);
 			document.body.style.backgroundImage = 'none';
-			document.body.style.overflow = "auto";
+			document.body.style.overflow = "hidden";
 	
 			window.SFX.Title.pause();
 			window.SFX.Title.currentTime = 0;

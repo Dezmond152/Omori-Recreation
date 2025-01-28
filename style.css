@@ -153,6 +153,7 @@ body{
   justify-content: center;
   align-items: center;
   z-index: 3;
+ 
 }
 
 .game-container{
@@ -500,4 +501,5 @@ body{
   z-index: 2;
   background-color: black;
   animation: 3s fading forwards;
+  
 }
