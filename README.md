@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="" target="_blank" rel="">
-    <img width="100%" src="sprites/git/ForGit1.gif" alt="#">
+    <img width="100%" src="sprites/git/omori-gif-30-720-347.gif" alt="#">
   </a>
 </p>
 
@@ -15,7 +15,7 @@
 
 <p align="center">
   <a href="" target="_blank" rel="">
-    <img width="100%" src="sprites/git/ForGit2.gif" alt="#">
+    <img width="100%" src="sprites/git/chrome-capture-2025-12-07.gif" alt="#">
   </a>
 </p>
 
