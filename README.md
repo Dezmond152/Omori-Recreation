@@ -1,4 +1,4 @@
-<h1 align="center"><b>Web game recreating the location of the house from the <a href="https://store.steampowered.com/app/1150690/OMORI/" target="_blank">OMORI</a></b></h1>
+<h1 align="center"><b>Web game recreating the location of the house from the <a href="https://store.steampowered.com/app/1150690/OMORI/" target="_blank">OMORI</a>🎻</b></h1>
 
 <p align="center">
   <a href="" target="_blank" rel="">
