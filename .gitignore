@@ -1,0 +1,10 @@
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+.DS_Store
+
+.vscode/
+*.code-workspace
+
+*.log
