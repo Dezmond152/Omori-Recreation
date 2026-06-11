@@ -1,8 +1,8 @@
-<h1 align="center"><b>Web game recreating the location of the house from the <a href="https://store.steampowered.com/app/1150690/OMORI/" target="_blank">OMORI</a></b></h1>
+<h1 align="center"><b>Web game recreating the location of the house from the <a href="https://store.steampowered.com/app/1150690/OMORI/" target="_blank">OMORI</a>🎻</b></h1>
 
 <p align="center">
   <a href="" target="_blank" rel="">
-    <img width="100%" src="sprites/git/ForGit1.gif" alt="#">
+    <img width="100%" src="sprites/git/omori-gif-30-720-347.gif" alt="#">
   </a>
 </p>
 
@@ -15,7 +15,7 @@
 
 <p align="center">
   <a href="" target="_blank" rel="">
-    <img width="100%" src="sprites/git/ForGit2.gif" alt="#">
+    <img width="100%" src="sprites/git/chrome-capture-2025-12-07.gif" alt="#">
   </a>
 </p>
 
@@ -33,7 +33,8 @@ Most of the project is implemented using **JavaScript Classes** to keep the code
 
 ---
 
-<span> <b><a href="https://dezmond152.github.io/Omori-Recreation/">GAME LINK</b></span> <br>
+<span> <b><a href="https://dezmond152.github.io/Omori-Recreation/">GAME LINK</b></span><br>
+
 Check out the recreation and enjoy the experience from OMORI directly in your browser! 🌟
 
 
